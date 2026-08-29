@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Saol Display";
+  src: url("./assets/fonts/SaolDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saol Display";
+  src: url("./assets/fonts/SaolDisplay-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Saol Display", "Fraunces", ui-serif, Georgia, serif;
+  --color-gold: #C9A24B;
+  --color-gold-dark: #A8822F;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-transition {
+    animation: page-fade-in 320ms ease-out;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: #1a1a1a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f1ec;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gold);
+  border: 2px solid #f4f1ec;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gold-dark);
+}
+
+.hero-display {
+  letter-spacing: -0.02em;
+}
+
+.kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 1px;
+  background-color: var(--color-gold);
+  transition: right 0.3s ease;
+}
+
+.nav-underline:hover::after {
+  right: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-down {
+  animation: fade-in-down 0.35s ease-out;
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .kenburns {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .fade-in-down {
+    animation: none;
+  }
+}
+
+.aso-track {
+  animation: aso-marquee 90s linear infinite;
+}
+
+.aso-marquee-wrap:hover .aso-track {
+  animation-play-state: paused;
+}
+
+@keyframes aso-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aso-track {
+    animation: none;
+  }
+}
