@@ -100,12 +100,12 @@ const CATEGORIES = [
     },
     {
         id: 'sets',
-        name: 'Two-Piece Sets',
+        name: "Men's Two-Piece Sets",
         eyebrow: 'Coordinated dressing',
         description:
             'Thoughtful separates designed to work together and apart.',
         image: amaniNation,
-        shopCategory: 'Two-Piece Sets',
+        shopCategory: 'Men Two-Piece',
     },
     {
         id: 'heritage',
@@ -161,7 +161,7 @@ const CATEGORIES = [
         description:
             'Coordinated pieces for couples, families, and group occasions.',
         image: editorial06,
-        shopCategory: 'Two-Piece Sets',
+        shopCategory: 'Women Two-Piece',
     },
 ];
 

@@ -63,7 +63,7 @@ const PRODUCT_LINES = [
     },
     {
         name: "Men's Two-Piece Sets",
-        category: 'Two-Piece Sets',
+        category: 'Men Two-Piece',
     },
     {
         name: "Women's Boubou Dresses",
@@ -71,7 +71,7 @@ const PRODUCT_LINES = [
     },
     {
         name: 'Northern Ghana Fugu (Smock) Wear',
-        category: 'Two-Piece Sets',
+        category: 'Fugu',
     },
     {
         name: 'Corporate African Wear',
@@ -91,7 +91,7 @@ const PRODUCT_LINES = [
     },
     {
         name: 'Family and Couple Collections',
-        category: 'Two-Piece Sets',
+        category: 'Women Two-Piece',
     },
     {
         name: 'Event and Occasion Wear',

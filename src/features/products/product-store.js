@@ -11,7 +11,6 @@ import tdFuguCocoa from '../../assets/products/TD-FUGU 04.png';
 import editorial01 from '../../assets/products/editorial-01.jpg';
 import editorial02 from '../../assets/products/editorial-02.jpg';
 import editorial03 from '../../assets/products/editorial-03.jpg';
-import editorial04 from '../../assets/products/editorial-04.jpg';
 import editorial05 from '../../assets/products/editorial-05.jpg';
 import editorial06 from '../../assets/products/editorial-06.jpg';
 
@@ -183,26 +182,6 @@ export const PRODUCTS = [
         reviewCount: 81,
     },
     {
-        id: 'couture-evening-dress',
-        name: 'Couture Evening Dress',
-        slug: 'couture-evening-dress',
-        price: 345,
-        // compareAtPrice: 420, // superseded — placeholder "was" price, not a real sale
-        compareAtPrice: null,
-        currency: 'USD',
-        category: 'Evening Wear',
-        image: editorial04,
-        images: [editorial04],
-        imageAlt: 'Couture evening dress',
-        description: 'Handcrafted evening wear with meticulous attention to drape and proportion — for occasions that deserve something extraordinary.',
-        sizes: ['XS', 'S', 'M', 'L'],
-        stock: 3,
-        featured: true,
-        isNew: false,
-        rating: 5.0,
-        reviewCount: 29,
-    },
-    {
         id: 'relaxed-print-co-ord',
         name: 'Relaxed Print Co-ord',
         slug: 'relaxed-print-co-ord',
@@ -210,7 +189,7 @@ export const PRODUCTS = [
         // compareAtPrice: 185, // superseded — placeholder "was" price, not a real sale
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Two-Piece Sets',
+        category: 'Women Two-Piece',
         image: editorial05,
         images: [editorial05],
         imageAlt: 'Relaxed print co-ord set',

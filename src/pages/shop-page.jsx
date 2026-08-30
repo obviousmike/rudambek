@@ -61,7 +61,12 @@ export function ShopPage() {
         () => [
             'All',
             ...Array.from(
-                new Set(PRODUCTS.map((product) => product.category))
+                new Set([
+                    ...PRODUCTS.map((product) => product.category),
+                    // Kept visible even with no products listed yet, so the
+                    // category exists ready for future inventory.
+                    'Men Two-Piece',
+                ])
             ),
         ],
         []

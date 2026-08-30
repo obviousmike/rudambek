@@ -43,7 +43,7 @@ const CATEGORIES = [
         description:
             'Coordinated sets designed for the modern African man — effortlessly put together.',
         image: amaniNation,
-        shopCategory: 'Two-Piece Sets',
+        shopCategory: 'Men Two-Piece',
         tag: "Men's",
     },
     {
@@ -61,7 +61,7 @@ const CATEGORIES = [
         description:
             'Handwoven smock fabric from Northern Ghana, fashioned into statement pieces that honour tradition.',
         image: editorial01,
-        shopCategory: 'Two-Piece Sets',
+        shopCategory: 'Fugu',
         tag: 'Heritage',
     },
     {
@@ -106,7 +106,7 @@ const CATEGORIES = [
         description:
             'Matching and coordinated sets for couples, families, and special group occasions.',
         image: editorial06,
-        shopCategory: 'Two-Piece Sets',
+        shopCategory: 'Women Two-Piece',
         tag: 'Family',
     },
     {
