@@ -86,6 +86,7 @@ const CATEGORIES = [
         description:
             'Fluid shapes, considered volume, and effortless elegance in motion.',
         image: pFuguDesign,
+        imageFit: 'contain',
         shopCategory: 'Fugu',
     },
     {
@@ -113,6 +114,7 @@ const CATEGORIES = [
         description:
             'Pieces inspired by African pattern, tradition, and textile craft.',
         image: tdFuguPlum,
+        imageFit: 'contain',
         shopCategory: 'Fugu',
     },
     {
@@ -131,6 +133,7 @@ const CATEGORIES = [
         description:
             'Curated seasonal pieces available now, without compromise.',
         image: pFuguPatches,
+        imageFit: 'contain',
         shopCategory: 'All',
     },
     {
@@ -517,12 +520,16 @@ function CategoryRail() {
                                         data-category-card
                                         className="group w-[68vw] max-w-[260px] shrink-0 snap-start outline-none sm:w-[220px] lg:w-[230px]"
                                     >
-                                        <div className="relative aspect-[4/5] overflow-hidden bg-slate-100 ring-offset-4 shadow-md transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-slate-900/20 group-focus-visible:ring-2 group-focus-visible:ring-[#c9a24b]">
+                                        <div className="relative aspect-[4/5] overflow-hidden bg-[#efe8dc] ring-offset-4 shadow-md transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-slate-900/20 group-focus-visible:ring-2 group-focus-visible:ring-[#c9a24b]">
                                             <img
                                                 src={category.image}
                                                 alt={category.name}
                                                 loading="lazy"
-                                                className="h-full w-full object-cover object-center transition duration-700 ease-out group-hover:scale-105"
+                                                className={`h-full w-full object-center transition duration-700 ease-out ${
+                                                    category.imageFit === 'contain'
+                                                        ? 'object-contain scale-125 group-hover:scale-[1.35]'
+                                                        : 'object-cover group-hover:scale-105'
+                                                }`}
                                             />
 
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
