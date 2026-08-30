@@ -26,7 +26,7 @@ export function ColorSwatches({ colors, selectedIndex, onSelect, size = 'md' }) 
                         }}
                         className={`${dimension} shrink-0 cursor-pointer overflow-hidden rounded-full border-2 p-0.5 transition ${
                             isSelected
-                                ? 'border-slate-900'
+                                ? 'border-[#C9A24B]'
                                 : 'border-transparent hover:border-slate-300'
                         }`}
                     >
