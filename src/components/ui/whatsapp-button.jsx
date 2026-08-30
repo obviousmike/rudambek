@@ -1,6 +1,4 @@
-// Replace with the real WhatsApp business number (digits only, country code
-// first, no leading +) — this matches the placeholder on the Contact page.
-const WHATSAPP_NUMBER = '233000000000';
+const WHATSAPP_NUMBER = '233542747691';
 const WHATSAPP_MESSAGE = "Hi Rudambek, I'd like to know more about your pieces.";
 
 export function WhatsAppButton() {

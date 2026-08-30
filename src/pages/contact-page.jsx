@@ -56,7 +56,7 @@ export function ContactPage() {
 
                         {[
                             { label: 'Email', value: 'hello@rudambek.com', href: 'mailto:hello@rudambek.com' },
-                            { label: 'Phone / WhatsApp', value: '+233 XX XXX XXXX', href: 'tel:+233000000000' },
+                            { label: 'Phone / WhatsApp', value: '+233 54 274 7691', href: 'tel:+233542747691' },
                             { label: 'Location', value: 'Accra, Ghana', href: null },
                             { label: 'Business hours', value: 'Mon – Fri, 9am – 5pm GMT', href: null },
                         ].map((item) => (
