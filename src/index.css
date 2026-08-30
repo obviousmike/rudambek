@@ -134,6 +134,26 @@ body {
   }
 }
 
+.whatsapp-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: #25d366;
+  animation: whatsapp-pulse 2.4s ease-out infinite;
+}
+
+@keyframes whatsapp-pulse {
+  from {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -151,6 +171,11 @@ body {
 
   .fade-in-down {
     animation: none;
+  }
+
+  .whatsapp-pulse-ring::before {
+    animation: none;
+    display: none;
   }
 }
 

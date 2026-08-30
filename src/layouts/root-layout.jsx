@@ -11,6 +11,7 @@ import { useCartStore } from '../features/cart/cart-store';
 import logo from '../assets/rudambek-logo.png';
 import logoFooter from '../assets/logo-footer.png';
 import { BackToTop } from '../components/ui/back-to-top';
+import { WhatsAppButton } from '../components/ui/whatsapp-button';
 import { CartDrawer } from '../components/ui/cart-drawer';
 import { QuickViewDrawer } from '../components/ui/quick-view-drawer';
 
@@ -741,6 +742,7 @@ export function RootLayout() {
             </footer>
 
             <BackToTop />
+            <WhatsAppButton />
             <CartDrawer />
             <QuickViewDrawer />
         </div>
