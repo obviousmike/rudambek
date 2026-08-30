@@ -9,6 +9,7 @@ import tdFuguDesign from '../assets/products/TD-FUGU Design 111 - GHS450.PNG';
 import tdFuguBatik from '../assets/products/TD-FUGU 01.PNG';
 import tdFuguChartreuse from '../assets/products/TD-FUGU 02.PNG';
 import tdFuguPlum from '../assets/products/TD-FUGU 03.PNG';
+import tdFuguCocoa from '../assets/products/TD-FUGU 04.png';
 
 const GOLD = '#C9A24B';
 
@@ -22,6 +23,7 @@ const GALLERY_ITEMS = [
     { id: 5, img: tdFuguBatik, title: 'TD-FUGU Design 111 — Maroon Batik' },
     { id: 6, img: tdFuguChartreuse, title: 'TD-FUGU Design 111 — Chartreuse Tie-Dye' },
     { id: 7, img: tdFuguPlum, title: 'TD-FUGU Design 111 — Plum Tie-Dye' },
+    { id: 8, img: tdFuguCocoa, title: 'TD-FUGU Design 111 — Cocoa Tie-Dye' },
 ];
 
 function GalleryCard({ item, duplicate = false, eager = false }) {
