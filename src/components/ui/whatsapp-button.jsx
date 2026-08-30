@@ -1,14 +1,29 @@
+import { useEffect, useState } from 'react';
+
 const WHATSAPP_NUMBER = '233542747691';
 const WHATSAPP_MESSAGE = "Hi Rudambek, I'd like to know more about your pieces.";
 
 export function WhatsAppButton() {
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setVisible(window.scrollY > 400);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <a
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat with us on WhatsApp"
-            className="whatsapp-pulse-ring fixed bottom-8 left-8 z-50 group flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:bg-[#1DA851] cursor-pointer"
+            className={`whatsapp-pulse-ring fixed bottom-8 left-8 z-50 group flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:bg-[#1DA851] cursor-pointer ${
+                visible
+                    ? 'opacity-100 translate-y-0 pointer-events-auto'
+                    : 'opacity-0 translate-y-6 pointer-events-none'
+            }`}
         >
             <svg
                 viewBox="0 0 24 24"
