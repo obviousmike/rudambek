@@ -323,10 +323,10 @@ export function RootLayout() {
 
             <div className="fixed inset-x-0 top-0 z-50 flex h-9 items-center justify-center bg-slate-900 px-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white">
                 <p className="truncate sm:hidden">
-                    Free delivery in Ghana over ₵500
+                    Free delivery in Ghana over ₵800
                 </p>
                 <p className="hidden truncate sm:block">
-                    Complimentary delivery in Ghana on orders over ₵500 —
+                    Complimentary delivery in Ghana on orders over ₵800 —
                     ships within 3–5 business days
                 </p>
             </div>

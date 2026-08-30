@@ -8,8 +8,8 @@ export const CURRENCY_RATES = {
     GBP: 0.78,  // British Pound
 };
 
-// Free delivery in Ghana on orders over GHS 500 (see the site-wide announcement bar).
-export const FREE_SHIPPING_THRESHOLD_GHS = 500;
+// Free delivery in Ghana on orders over GHS 800 (see the site-wide announcement bar).
+export const FREE_SHIPPING_THRESHOLD_GHS = 800;
 export const FREE_SHIPPING_THRESHOLD_USD =
     FREE_SHIPPING_THRESHOLD_GHS / CURRENCY_RATES.GHS;
 

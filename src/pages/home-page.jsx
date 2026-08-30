@@ -645,7 +645,7 @@ const TRUST_ITEMS = [
         id: 'delivery',
         icon: TruckIcon,
         title: 'Free delivery in Ghana',
-        detail: 'On all orders over ₵500',
+        detail: 'On all orders over ₵800',
     },
     {
         id: 'secure',
