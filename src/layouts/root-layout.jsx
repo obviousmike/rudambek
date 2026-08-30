@@ -594,10 +594,10 @@ export function RootLayout() {
 
                                 <li>
                                     <Link
-                                        to="/shop?category=Dresses"
+                                        to={`/shop?category=${encodeURIComponent('Women Two-Piece')}`}
                                         className="transition-colors hover:text-white"
                                     >
-                                        Dresses
+                                        Women Two-Piece
                                     </Link>
                                 </li>
 

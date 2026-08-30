@@ -25,7 +25,7 @@ const CATEGORIES = [
         description:
             'Bold Ankara and Kente prints crafted into elegant, wearable dresses for every occasion.',
         image: ankaraKaftan,
-        shopCategory: 'Dresses',
+        shopCategory: 'Women Two-Piece',
         tag: "Women's",
     },
     {
@@ -70,7 +70,7 @@ const CATEGORIES = [
         description:
             'Professional silhouettes fused with African prints — dress for the boardroom without losing your identity.',
         image: editorial02,
-        shopCategory: 'Dresses',
+        shopCategory: 'Women Two-Piece',
         tag: 'Corporate',
     },
     {
@@ -115,7 +115,7 @@ const CATEGORIES = [
         description:
             'From weddings to funerals, naming ceremonies to graduations — dressed for every milestone.',
         image: editorial01,
-        shopCategory: 'Dresses',
+        shopCategory: 'Women Two-Piece',
         tag: 'Occasions',
     },
 ];

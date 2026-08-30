@@ -77,7 +77,7 @@ const CATEGORIES = [
         description:
             'Bold prints and expressive silhouettes for celebrations, evenings, and everyday presence.',
         image: ankaraKaftan,
-        shopCategory: 'Dresses',
+        shopCategory: 'Women Two-Piece',
     },
     {
         id: 'kaftans',
@@ -124,7 +124,7 @@ const CATEGORIES = [
         description:
             'Distinctive dressing for ceremonies, celebrations, and milestones.',
         image: editorial02,
-        shopCategory: 'Dresses',
+        shopCategory: 'Women Two-Piece',
     },
     {
         id: 'ready-to-wear',

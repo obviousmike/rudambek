@@ -55,7 +55,7 @@ const CRAFTS = [
 const PRODUCT_LINES = [
     {
         name: 'African Print Dresses',
-        category: 'Dresses',
+        category: 'Women Two-Piece',
     },
     {
         name: "Men's African Print Shirts",
@@ -75,7 +75,7 @@ const PRODUCT_LINES = [
     },
     {
         name: 'Corporate African Wear',
-        category: 'Dresses',
+        category: 'Women Two-Piece',
     },
     {
         name: 'Ready-to-Wear Collections',
@@ -95,7 +95,7 @@ const PRODUCT_LINES = [
     },
     {
         name: 'Event and Occasion Wear',
-        category: 'Dresses',
+        category: 'Women Two-Piece',
     },
 ];
 
