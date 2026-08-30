@@ -1,5 +1,7 @@
 import pFuguDesign from '../../assets/products/P-FUGU Design GHS - 400.PNG';
 import pFuguPatches from '../../assets/products/P-FUGU Patches ghs - 450.PNG';
+import pFuguPatchesForest from '../../assets/products/P-FUGU Patches 01.PNG';
+import pFuguPatchesKente from '../../assets/products/P-FUGU Patches 02.PNG';
 import tdPDesign from '../../assets/products/TD-P Design GHS -  350.PNG';
 import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.PNG';
 import tdFuguBatik from '../../assets/products/TD-FUGU 01.PNG';
@@ -56,9 +58,11 @@ export const PRODUCTS = [
         images: [pFuguPatches],
         colors: [
             { name: 'Navy Patchwork', image: pFuguPatches, images: [pFuguPatches] },
+            { name: 'Forest Patchwork', image: pFuguPatchesForest, images: [pFuguPatchesForest] },
+            { name: 'Kente Patchwork', image: pFuguPatchesKente, images: [pFuguPatchesKente] },
         ],
-        imageAlt: 'Navy Fugu with woven plaid patchwork and fringe details',
-        description: 'This navy Fugu layers in woven plaid patches and raw fringe, with a striped collar adding a handcrafted, textural edge.',
+        imageAlt: 'Fugu with contrasting patchwork pockets and a striped colorblock',
+        description: 'An oversized Fugu layered with contrasting patch pockets and a bold striped colorblock, for a handcrafted, textural edge.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 8,
         featured: true,
