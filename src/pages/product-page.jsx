@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import {
     getDiscountPercentage,
     getProductBadge,
@@ -13,6 +13,7 @@ import { useAppStore } from '../store/use-app-store';
 import { useCartStore } from '../features/cart/cart-store';
 import { useWishlistStore } from '../features/wishlist/wishlist-store';
 import { HeartIcon } from '../components/ui/heart-icon';
+import { ColorSwatches } from '../components/ui/color-swatches';
 import { usePageMeta } from '../hooks/use-page-meta';
 import { Reveal } from '../components/ui/reveal';
 import { Breadcrumbs } from '../components/ui/breadcrumbs';
@@ -22,6 +23,7 @@ import { useRecentlyViewedStore } from '../features/products/recently-viewed-sto
 
 export function ProductPage() {
     const { productId } = useParams();
+    const location = useLocation();
     const product = getProductById(productId);
 
     usePageMeta({
@@ -31,7 +33,7 @@ export function ProductPage() {
         noIndex: !product,
     });
 
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const isWishlisted = useWishlistStore((state) =>
         product ? state.isInWishlist(product.id) : false
@@ -44,6 +46,9 @@ export function ProductPage() {
     const [justAdded, setJustAdded] = useState(false);
     const [sizeError, setSizeError] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [selectedColorIndex, setSelectedColorIndex] = useState(
+        location.state?.initialColorIndex ?? 0
+    );
 
     useEffect(() => {
         if (!lightboxOpen) return undefined;
@@ -79,6 +84,8 @@ export function ProductPage() {
     const badge = getProductBadge(product);
     const inStock = product.stock > 0;
     const relatedProducts = getRelatedProducts(product);
+    const activeColor = product.colors?.[selectedColorIndex];
+    const displayImage = activeColor?.image ?? product.image;
 
     const productJsonLd = {
         '@context': 'https://schema.org',
@@ -119,6 +126,9 @@ export function ProductPage() {
 
         addToCart({
             ...product,
+            image: displayImage,
+            images: activeColor?.images ?? product.images,
+            color: activeColor?.name,
             quantity,
             selectedSize,
         });
@@ -133,6 +143,18 @@ export function ProductPage() {
 
     const handleToggleWishlist = () => {
         toggleWishlist(product);
+    };
+
+    const colorCount = product.colors?.length ?? 0;
+
+    const handlePrevColor = () => {
+        if (colorCount < 2) return;
+        setSelectedColorIndex((index) => (index - 1 + colorCount) % colorCount);
+    };
+
+    const handleNextColor = () => {
+        if (colorCount < 2) return;
+        setSelectedColorIndex((index) => (index + 1) % colorCount);
     };
 
     return (
@@ -169,30 +191,55 @@ export function ProductPage() {
                     aria-labelledby="product-title"
                     className="grid overflow-hidden border border-slate-100 bg-white md:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]"
                 >
-                    <button
-                        type="button"
-                        onClick={() => setLightboxOpen(true)}
-                        aria-label={`Zoom in on ${product.name}`}
-                        className="group relative block aspect-[4/5] min-h-[420px] w-full cursor-zoom-in bg-slate-100 md:aspect-auto"
-                    >
+                    <div className="group relative block aspect-square w-full overflow-hidden bg-slate-100">
+                        <button
+                            type="button"
+                            onClick={() => setLightboxOpen(true)}
+                            aria-label={`Zoom in on ${product.name}`}
+                            className="absolute inset-0 cursor-zoom-in"
+                        />
+
                         <img
-                            src={product.image}
+                            key={activeColor?.name ?? product.image}
+                            src={displayImage}
                             alt={product.imageAlt || product.name}
-                            className="h-full min-h-[520px] w-full object-cover"
+                            className="color-fade-in pointer-events-none h-full w-full object-contain"
                         />
 
                         {badge && (
                             <span
-                                className={`absolute left-4 top-4 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white ${BADGE_TONE_CLASSES[badge.tone]}`}
+                                className={`pointer-events-none absolute left-4 top-4 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white ${BADGE_TONE_CLASSES[badge.tone]}`}
                             >
                                 {badge.label}
                             </span>
                         )}
 
-                        <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center bg-white/90 text-slate-700 opacity-0 shadow-sm backdrop-blur transition-opacity duration-200 group-hover:opacity-100">
+                        {colorCount > 1 && (
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={handlePrevColor}
+                                    aria-label="Previous color"
+                                    className="absolute left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:scale-110 hover:text-[#c9a24b]"
+                                >
+                                    <ChevronIcon className="h-4 w-4" direction="left" />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={handleNextColor}
+                                    aria-label="Next color"
+                                    className="absolute right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:scale-110 hover:text-[#c9a24b]"
+                                >
+                                    <ChevronIcon className="h-4 w-4" direction="right" />
+                                </button>
+                            </>
+                        )}
+
+                        <span className="pointer-events-none absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center bg-white/90 text-slate-700 opacity-0 shadow-sm backdrop-blur transition-opacity duration-200 group-hover:opacity-100">
                             <ZoomIcon className="h-4 w-4" />
                         </span>
-                    </button>
+                    </div>
 
                     <div className="flex flex-col p-6 sm:p-10 lg:p-16">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#a6814c]">
@@ -215,7 +262,7 @@ export function ProductPage() {
                                         : 'text-slate-900'
                                     }`}
                             >
-                                {formatPrice(product.price)}
+                                {formatDualPrice(product.price)}
                             </span>
 
                             {onSale && (
@@ -224,7 +271,7 @@ export function ProductPage() {
                                         <span className="sr-only">
                                             Original price:
                                         </span>
-                                        {formatPrice(product.compareAtPrice)}
+                                        {formatDualPrice(product.compareAtPrice)}
                                     </s>
 
                                     <span className="bg-[#a33f32] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
@@ -237,6 +284,25 @@ export function ProductPage() {
                         <p className="mt-6 max-w-xl text-sm leading-7 text-slate-600">
                             {product.description}
                         </p>
+
+                        {product.colors?.length > 1 && (
+                            <div className="mt-6">
+                                <div className="mb-3 flex items-center gap-3">
+                                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                        Color
+                                    </span>
+                                    <span className="text-xs font-medium text-[#a6814c]">
+                                        {activeColor?.name}
+                                    </span>
+                                </div>
+
+                                <ColorSwatches
+                                    colors={product.colors}
+                                    selectedIndex={selectedColorIndex}
+                                    onSelect={setSelectedColorIndex}
+                                />
+                            </div>
+                        )}
 
                         {product.sizes?.length > 0 && (
                             <SizeSelector
@@ -377,7 +443,7 @@ export function ProductPage() {
                     />
 
                     <img
-                        src={product.image}
+                        src={displayImage}
                         alt={product.imageAlt || product.name}
                         className="relative max-h-full max-w-full object-contain shadow-2xl"
                     />
@@ -430,6 +496,24 @@ function ZoomIcon(props) {
         >
             <circle cx="10.5" cy="10.5" r="6.5" />
             <path d="M15.5 15.5 21 21M10.5 8v5M8 10.5h5" strokeLinecap="round" />
+        </svg>
+    );
+}
+
+function ChevronIcon({ direction = 'left', ...props }) {
+    return (
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            {...props}
+        >
+            <path
+                d={direction === 'left' ? 'M14 6l-6 6 6 6' : 'M10 6l6 6-6 6'}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
         </svg>
     );
 }

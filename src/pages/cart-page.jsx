@@ -16,7 +16,7 @@ export function CartPage() {
     const removeFromCart = useCartStore((state) => state.removeFromCart);
     const updateQuantity = useCartStore((state) => state.updateQuantity);
     const getCartTotal = useCartStore((state) => state.getCartTotal);
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
 
     const recommendedProducts = getRecommendedProducts(
         cartItems.map((item) => item.id),
@@ -46,7 +46,7 @@ export function CartPage() {
 
             <div className="bg-white border border-slate-100 divide-y divide-slate-100">
                 {cartItems.map((item) => (
-                    <div key={item.id} className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4 transition-colors duration-200 hover:bg-slate-50/80">
+                    <div key={item.lineId} className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4 transition-colors duration-200 hover:bg-slate-50/80">
                         <img
                             src={item.image}
                             alt={item.name}
@@ -56,12 +56,15 @@ export function CartPage() {
                         <div className="flex-1 min-w-0">
                             <span className="text-[11px] font-semibold text-gold-dark uppercase tracking-widest">{item.category}</span>
                             <h3 className="font-serif text-lg text-slate-900">{item.name}</h3>
-                            <p className="text-sm text-slate-500 mt-0.5">{formatPrice(item.price)} each</p>
+                            {item.color && (
+                                <p className="text-xs text-slate-400">{item.color}</p>
+                            )}
+                            <p className="text-sm text-slate-500 mt-0.5">{formatDualPrice(item.price)} each</p>
                         </div>
 
                         <div className="flex items-center border border-slate-300 rounded-lg self-start sm:self-center">
                             <button
-                                onClick={() => updateQuantity(item.id, -1)}
+                                onClick={() => updateQuantity(item.lineId, -1)}
                                 aria-label="Decrease quantity"
                                 className="w-9 h-9 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition cursor-pointer"
                             >
@@ -69,7 +72,7 @@ export function CartPage() {
                             </button>
                             <span className="w-8 text-center font-semibold text-slate-900">{item.quantity}</span>
                             <button
-                                onClick={() => updateQuantity(item.id, 1)}
+                                onClick={() => updateQuantity(item.lineId, 1)}
                                 aria-label="Increase quantity"
                                 className="w-9 h-9 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition cursor-pointer"
                             >
@@ -77,12 +80,12 @@ export function CartPage() {
                             </button>
                         </div>
 
-                        <p className="w-24 text-right font-semibold text-slate-900">
-                            {formatPrice(item.price * item.quantity)}
+                        <p className="shrink-0 text-right font-semibold text-slate-900">
+                            {formatDualPrice(item.price * item.quantity)}
                         </p>
 
                         <button
-                            onClick={() => removeFromCart(item.id)}
+                            onClick={() => removeFromCart(item.lineId)}
                             aria-label={`Remove ${item.name}`}
                             className="text-slate-400 hover:text-red-500 transition text-sm font-medium cursor-pointer self-start sm:self-center"
                         >
@@ -95,7 +98,7 @@ export function CartPage() {
             <div className="bg-white border border-slate-100 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                     <span className="text-sm text-slate-500">Subtotal</span>
-                    <p className="font-serif text-2xl text-slate-900">{formatPrice(getCartTotal())}</p>
+                    <p className="font-serif text-2xl text-slate-900">{formatDualPrice(getCartTotal())}</p>
                 </div>
                 <Link
                     to="/checkout"

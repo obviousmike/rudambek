@@ -7,7 +7,7 @@ import { TruckIcon } from './trust-icons';
 
 export function ShippingProgress({ className = '' }) {
     const subtotal = useCartStore((state) => state.getCartTotal());
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
 
     const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD_USD - subtotal);
     const progress = Math.min(
@@ -36,7 +36,7 @@ export function ShippingProgress({ className = '' }) {
                     <span>
                         Add{' '}
                         <strong className="font-semibold text-slate-900">
-                            {formatPrice(remaining)}
+                            {formatDualPrice(remaining)}
                         </strong>{' '}
                         more for free delivery in Ghana.
                     </span>

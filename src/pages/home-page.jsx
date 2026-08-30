@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductCard } from '../features/products/components/product-card';
 import { PRODUCTS } from '../features/products/product-store';
-import { useAppStore } from '../store/use-app-store';
 import { HeroCarousel } from '../components/ui/hero-carousel';
 import { Reveal } from '../components/ui/reveal';
 import { AsSeenOnSection } from './as-seen-on-page';
@@ -64,13 +63,6 @@ const SIGNATURE_COLLECTIONS = [
         span: 'lg:col-span-1',
         minHeight: 'min-h-[240px] lg:min-h-0',
     },
-];
-
-const currencyOptions = [
-    { value: 'USD', label: 'USD ($)' },
-    { value: 'GHS', label: 'GHS (₵)' },
-    { value: 'EUR', label: 'EUR (€)' },
-    { value: 'GBP', label: 'GBP (£)' },
 ];
 
 const CATEGORIES = [
@@ -169,7 +161,6 @@ const CATEGORIES = [
 export function HomePage() {
     usePageMeta();
 
-    const { currentCurrency, setCurrency } = useAppStore();
     const latestProducts = PRODUCTS.slice(0, 4);
 
     return (
@@ -214,12 +205,6 @@ export function HomePage() {
                                 {PRODUCTS.length}{' '}
                                 {PRODUCTS.length === 1 ? 'piece' : 'pieces'}
                             </span>
-
-                            <CurrencySelect
-                                id="home-currency"
-                                value={currentCurrency}
-                                onChange={setCurrency}
-                            />
                         </div>
                     </div>
 
@@ -230,6 +215,7 @@ export function HomePage() {
                                     <ProductCard
                                         key={product.id}
                                         product={product}
+                                        showColorSwatches={false}
                                     />
                                 ))}
                             </div>
@@ -860,31 +846,6 @@ function SignatureCollectionCard({ collection }) {
     );
 }
 
-function CurrencySelect({ id, value, onChange }) {
-    return (
-        <div className="flex items-center gap-2">
-            <label
-                htmlFor={id}
-                className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500"
-            >
-                Currency
-            </label>
-
-            <select
-                id={id}
-                value={value}
-                onChange={(event) => onChange(event.target.value)}
-                className="min-h-11 cursor-pointer rounded-none border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-[#a6814c] focus:ring-1 focus:ring-[#a6814c]"
-            >
-                {currencyOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
-        </div>
-    );
-}
 
 function EmptyCollection() {
     return (
@@ -921,10 +882,10 @@ function FaqNewsletter() {
     return (
         <section className="bg-white py-24 sm:py-28">
             <div className="mx-auto max-w-[1400px] px-8 lg:px-12">
-                <div className="grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-16 xl:gap-24">
+                <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_380px] lg:gap-16 xl:gap-24">
 
                     {/* Left: FAQ */}
-                    <div>
+                    <div className="min-w-0">
                         <p className="text-[10px] font-semibold uppercase tracking-[0.32em]" style={{ color: GOLD }}>
                             Need to know
                         </p>
@@ -973,7 +934,7 @@ function FaqNewsletter() {
                     </div>
 
                     {/* Right: Newsletter */}
-                    <div className="bg-[#F5F0E8] p-8 sm:p-10 flex flex-col justify-center shadow-sm ring-1 ring-black/[0.03]">
+                    <div className="min-w-0 bg-[#F5F0E8] p-8 sm:p-10 flex flex-col justify-center shadow-sm ring-1 ring-black/[0.03]">
                         <p className="text-[10px] font-semibold uppercase tracking-[0.32em]" style={{ color: GOLD }}>
                             Stay in the know
                         </p>
@@ -999,7 +960,7 @@ function FaqNewsletter() {
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Your email address"
                                         required
-                                        className="flex-1 min-h-12 border border-slate-300 bg-white px-4 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-[#C9A24B] focus:ring-1 focus:ring-[#C9A24B] transition"
+                                        className="min-w-0 flex-1 min-h-12 border border-slate-300 bg-white px-4 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-[#C9A24B] focus:ring-1 focus:ring-[#C9A24B] transition"
                                     />
                                     <button
                                         type="submit"

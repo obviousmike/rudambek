@@ -11,6 +11,7 @@ import {
 } from '../../features/products/product-store';
 import { BADGE_TONE_CLASSES } from '../../features/products/badge-styles';
 import { HeartIcon } from './heart-icon';
+import { ColorSwatches } from './color-swatches';
 import { TruckIcon, ReturnIcon, ShieldIcon } from './trust-icons';
 
 const ASSURANCES = [
@@ -29,6 +30,24 @@ function CloseIcon(props) {
             {...props}
         >
             <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+        </svg>
+    );
+}
+
+function ChevronIcon({ direction = 'left', ...props }) {
+    return (
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            {...props}
+        >
+            <path
+                d={direction === 'left' ? 'M14 6l-6 6 6 6' : 'M10 6l6 6-6 6'}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
         </svg>
     );
 }
@@ -57,6 +76,7 @@ export function QuickViewDrawer() {
     const closeQuickView = useQuickViewStore((state) => state.closeQuickView);
 
     const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const isWishlisted = useWishlistStore((state) =>
         product ? state.isInWishlist(product.id) : false
@@ -67,6 +87,7 @@ export function QuickViewDrawer() {
     const [quantity, setQuantity] = useState(1);
     const [added, setAdded] = useState(false);
     const [sizeError, setSizeError] = useState(false);
+    const [selectedColorIndex, setSelectedColorIndex] = useState(0);
 
     // Reset the form whenever a different product is shown, adjusted
     // directly during render (React's recommended pattern for "reset state
@@ -78,6 +99,7 @@ export function QuickViewDrawer() {
         setQuantity(1);
         setAdded(false);
         setSizeError(false);
+        setSelectedColorIndex(product.initialColorIndex ?? 0);
     }
 
     useEffect(() => {
@@ -98,6 +120,8 @@ export function QuickViewDrawer() {
     const badge = getProductBadge(product);
     const hasSizes = product.sizes?.length > 0;
     const inStock = product.stock > 0;
+    const activeColor = product.colors?.[selectedColorIndex];
+    const displayImage = activeColor?.image ?? product.image;
 
     const handleAddToCart = () => {
         if (hasSizes && !selectedSize) {
@@ -109,6 +133,9 @@ export function QuickViewDrawer() {
 
         addToCart({
             ...product,
+            image: displayImage,
+            images: activeColor?.images ?? product.images,
+            color: activeColor?.name,
             quantity,
             selectedSize,
         });
@@ -120,6 +147,18 @@ export function QuickViewDrawer() {
     const handleSelectSize = (size) => {
         setSelectedSize(size);
         setSizeError(false);
+    };
+
+    const colorCount = product.colors?.length ?? 0;
+
+    const handlePrevColor = () => {
+        if (colorCount < 2) return;
+        setSelectedColorIndex((index) => (index - 1 + colorCount) % colorCount);
+    };
+
+    const handleNextColor = () => {
+        if (colorCount < 2) return;
+        setSelectedColorIndex((index) => (index + 1) % colorCount);
     };
 
     return (
@@ -155,12 +194,37 @@ export function QuickViewDrawer() {
                 </button>
 
                 <div className="grid flex-1 sm:grid-cols-2">
-                    <div className="relative aspect-square bg-slate-100 sm:aspect-auto sm:min-h-full">
+                    <div className="relative aspect-square overflow-hidden bg-slate-100 sm:aspect-auto sm:min-h-full">
                         <img
-                            src={product.image}
+                            key={activeColor?.name ?? product.image}
+                            src={displayImage}
                             alt={product.imageAlt || product.name}
-                            className="h-full w-full object-cover"
+                            className="color-fade-in h-full w-full object-cover"
                         />
+
+                        {colorCount > 1 && (
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={handlePrevColor}
+                                    tabIndex={isOpen ? 0 : -1}
+                                    aria-label="Previous color"
+                                    className="absolute left-4 top-1/2 flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-slate-600 shadow-sm backdrop-blur transition hover:scale-110 hover:text-[#c9a24b]"
+                                >
+                                    <ChevronIcon className="h-4 w-4" direction="left" />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={handleNextColor}
+                                    tabIndex={isOpen ? 0 : -1}
+                                    aria-label="Next color"
+                                    className="absolute right-4 top-1/2 flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-slate-600 shadow-sm backdrop-blur transition hover:scale-110 hover:text-[#c9a24b]"
+                                >
+                                    <ChevronIcon className="h-4 w-4" direction="right" />
+                                </button>
+                            </>
+                        )}
 
                         {badge && (
                             <span
@@ -220,13 +284,13 @@ export function QuickViewDrawer() {
                                         : 'text-slate-900'
                                     }`}
                             >
-                                {formatPrice(product.price)}
+                                {formatDualPrice(product.price)}
                             </span>
 
                             {onSale && (
                                 <>
                                     <s className="text-sm text-slate-400">
-                                        {formatPrice(product.compareAtPrice)}
+                                        {formatDualPrice(product.compareAtPrice)}
                                     </s>
                                     <span className="bg-[#a33f32] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
                                         Save {discountPercentage}%
@@ -238,6 +302,26 @@ export function QuickViewDrawer() {
                         <p className="mt-4 text-sm leading-6 text-slate-500">
                             {product.description}
                         </p>
+
+                        {product.colors?.length > 1 && (
+                            <div className="mt-4">
+                                <div className="mb-2 flex items-center gap-3">
+                                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                        Color
+                                    </span>
+                                    <span className="text-xs font-medium text-[#a6814c]">
+                                        {activeColor?.name}
+                                    </span>
+                                </div>
+
+                                <ColorSwatches
+                                    colors={product.colors}
+                                    selectedIndex={selectedColorIndex}
+                                    onSelect={setSelectedColorIndex}
+                                    size="sm"
+                                />
+                            </div>
+                        )}
 
                         {hasSizes && (
                             <div className="mt-6">

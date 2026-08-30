@@ -1,6 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+// Different colors of the same product are distinct cart lines.
+function getLineId(item) {
+    return item.color ? `${item.id}::${item.color}` : item.id;
+}
+
 export const useCartStore = create(
     persist(
         (set, get) => ({
@@ -12,35 +17,36 @@ export const useCartStore = create(
 
             // 1. Add item to shopping cart array
             addToCart: (product) => {
+                const lineId = getLineId(product);
                 const items = get().cartItems;
-                const existingItem = items.find((item) => item.id === product.id);
+                const existingItem = items.find((item) => item.lineId === lineId);
 
                 if (existingItem) {
                     // If product exists, bump up the selection quantity counter
                     set({
                         cartItems: items.map((item) =>
-                            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                            item.lineId === lineId ? { ...item, quantity: item.quantity + 1 } : item
                         ),
                         isDrawerOpen: true,
                     });
                 } else {
                     // Add new item object to cart array list
                     set({
-                        cartItems: [...items, { ...product, quantity: 1 }],
+                        cartItems: [...items, { ...product, lineId, quantity: 1 }],
                         isDrawerOpen: true,
                     });
                 }
             },
 
             // 2. Remove item array entirely from cart list
-            removeFromCart: (productId) => {
-                set({ cartItems: get().cartItems.filter((item) => item.id !== productId) });
+            removeFromCart: (lineId) => {
+                set({ cartItems: get().cartItems.filter((item) => item.lineId !== lineId) });
             },
 
             // 3. Increment/Decrement individual product totals safely
-            updateQuantity: (productId, amount) => {
+            updateQuantity: (lineId, amount) => {
                 const updatedItems = get().cartItems.map((item) => {
-                    if (item.id === productId) {
+                    if (item.lineId === lineId) {
                         const nextQuantity = item.quantity + amount;
                         return { ...item, quantity: Math.max(1, nextQuantity) }; // Prevents crashing under 1
                     }

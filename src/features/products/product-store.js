@@ -2,6 +2,9 @@ import pFuguDesign from '../../assets/products/P-FUGU Design GHS - 400.PNG';
 import pFuguPatches from '../../assets/products/P-FUGU Patches ghs - 450.PNG';
 import tdPDesign from '../../assets/products/TD-P Design GHS -  350.PNG';
 import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.PNG';
+import tdFuguBatik from '../../assets/products/TD-FUGU 01.PNG';
+import tdFuguChartreuse from '../../assets/products/TD-FUGU 02.PNG';
+import tdFuguPlum from '../../assets/products/TD-FUGU 03.PNG';
 import editorial01 from '../../assets/products/editorial-01.jpg';
 import editorial02 from '../../assets/products/editorial-02.jpg';
 import editorial03 from '../../assets/products/editorial-03.jpg';
@@ -11,9 +14,9 @@ import editorial06 from '../../assets/products/editorial-06.jpg';
 
 export const PRODUCTS = [
     {
-        id: 'striped-yoke-fugu',
-        name: 'Striped Yoke Fugu',
-        slug: 'striped-yoke-fugu',
+        id: 'p-fugu-design',
+        name: 'P-FUGU Design',
+        slug: 'p-fugu-design',
         // price: 199, // original placeholder price
         // price: 36, // superseded — was converted at the live market GHS rate
         // price: 25.8065, // superseded — was converted at the site's old, stale GHS rate (15.50)
@@ -23,8 +26,13 @@ export const PRODUCTS = [
         category: 'Fugu',
         image: pFuguDesign,
         images: [pFuguDesign],
+        // Color variants of this design. Add more entries here as new
+        // color photos come in — the first entry is shown by default.
+        colors: [
+            { name: 'Navy & Tan', image: pFuguDesign, images: [pFuguDesign] },
+        ],
         imageAlt: 'Navy Fugu with a striped colorblock yoke and cuffs',
-        description: 'An oversized navy Fugu finished with a striped colorblock yoke and matching cuffs for a considered, tailored contrast.',
+        description: 'A relaxed, oversized Fugu in solid navy, punctuated by a pinstriped tan yoke and matching cuffs for a sharp, considered contrast.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 12,
         featured: true,
@@ -33,9 +41,9 @@ export const PRODUCTS = [
         reviewCount: 128,
     },
     {
-        id: 'patchwork-fringe-fugu',
-        name: 'Patchwork Fringe Fugu',
-        slug: 'patchwork-fringe-fugu',
+        id: 'p-fugu-patches',
+        name: 'P-FUGU Patches',
+        slug: 'p-fugu-patches',
         // price: 159, // original placeholder price
         // price: 40, // superseded — was converted at the live market GHS rate
         // price: 29.0323, // superseded — was converted at the site's old, stale GHS rate (15.50)
@@ -45,8 +53,11 @@ export const PRODUCTS = [
         category: 'Fugu',
         image: pFuguPatches,
         images: [pFuguPatches],
+        colors: [
+            { name: 'Navy Patchwork', image: pFuguPatches, images: [pFuguPatches] },
+        ],
         imageAlt: 'Navy Fugu with woven plaid patchwork and fringe details',
-        description: 'A relaxed navy Fugu layered with woven plaid patches and raw fringe edges, striped along the collar for a handcrafted, textural finish.',
+        description: 'This navy Fugu layers in woven plaid patches and raw fringe, with a striped collar adding a handcrafted, textural edge.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 8,
         featured: true,
@@ -55,9 +66,9 @@ export const PRODUCTS = [
         reviewCount: 96,
     },
     {
-        id: 'tie-dye-colorblock-fugu',
-        name: 'Tie-Dye Colorblock Fugu',
-        slug: 'tie-dye-colorblock-fugu',
+        id: 'td-p-design',
+        name: 'TD-P Design',
+        slug: 'td-p-design',
         // price: 75, // original placeholder price
         // price: 31, // superseded — was converted at the live market GHS rate
         // price: 22.5806, // superseded — was converted at the site's old, stale GHS rate (15.50)
@@ -67,8 +78,11 @@ export const PRODUCTS = [
         category: 'Fugu',
         image: tdPDesign,
         images: [tdPDesign],
+        colors: [
+            { name: 'Black & White', image: tdPDesign, images: [tdPDesign] },
+        ],
         imageAlt: 'Black and white tie-dye Fugu with a white colorblock yoke',
-        description: 'A monochrome tie-dye Fugu finished with a crisp white colorblock yoke and cuffs — fluid, contrast-driven, and easy to wear.',
+        description: 'A monochrome tie-dye Fugu where the print flows into a crisp white yoke and cuffs, balancing pattern with clean contrast.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 20,
         featured: false,
@@ -77,9 +91,9 @@ export const PRODUCTS = [
         reviewCount: 74,
     },
     {
-        id: 'tie-dye-striped-fugu',
-        name: 'Tie-Dye Striped Fugu',
-        slug: 'tie-dye-striped-fugu',
+        id: 'td-fugu-design-111',
+        name: 'TD-FUGU Design 111',
+        slug: 'td-fugu-design-111',
         // price: 179, // original placeholder price
         // price: 40, // superseded — was converted at the live market GHS rate
         // price: 29.0323, // superseded — was converted at the site's old, stale GHS rate (15.50)
@@ -89,8 +103,14 @@ export const PRODUCTS = [
         category: 'Fugu',
         image: tdFuguDesign,
         images: [tdFuguDesign],
-        imageAlt: 'Yellow tie-dye Fugu with a green striped yoke and cuffs',
-        description: 'A sunlit tie-dye Fugu grounded by a striped green colorblock yoke and cuffs, for a bold yet balanced silhouette.',
+        colors: [
+            { name: 'Gold & Green', image: tdFuguDesign, images: [tdFuguDesign] },
+            { name: 'Maroon Batik', image: tdFuguBatik, images: [tdFuguBatik] },
+            { name: 'Chartreuse Tie-Dye', image: tdFuguChartreuse, images: [tdFuguChartreuse] },
+            { name: 'Plum Tie-Dye', image: tdFuguPlum, images: [tdFuguPlum] },
+        ],
+        imageAlt: 'Tie-dye Fugu with a striped colorblock yoke and cuffs',
+        description: 'An oversized tie-dye Fugu balanced by a striped colorblock yoke and cuffs, for a bold, considered silhouette.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 5,
         featured: true,
@@ -122,7 +142,8 @@ export const PRODUCTS = [
         name: 'Structured Statement Dress',
         slug: 'structured-statement-dress',
         price: 215,
-        compareAtPrice: 260,
+        // compareAtPrice: 260, // superseded — placeholder "was" price, not a real sale
+        compareAtPrice: null,
         currency: 'USD',
         category: 'Dresses',
         image: editorial02,
@@ -160,7 +181,8 @@ export const PRODUCTS = [
         name: 'Couture Evening Dress',
         slug: 'couture-evening-dress',
         price: 345,
-        compareAtPrice: 420,
+        // compareAtPrice: 420, // superseded — placeholder "was" price, not a real sale
+        compareAtPrice: null,
         currency: 'USD',
         category: 'Evening Wear',
         image: editorial04,
@@ -179,7 +201,8 @@ export const PRODUCTS = [
         name: 'Relaxed Print Co-ord',
         slug: 'relaxed-print-co-ord',
         price: 155,
-        compareAtPrice: 185,
+        // compareAtPrice: 185, // superseded — placeholder "was" price, not a real sale
+        compareAtPrice: null,
         currency: 'USD',
         category: 'Two-Piece Sets',
         image: editorial05,

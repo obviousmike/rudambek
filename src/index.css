@@ -38,6 +38,10 @@ html {
   .page-transition {
     animation: page-fade-in 320ms ease-out;
   }
+
+  .color-fade-in {
+    animation: page-fade-in 220ms ease-out;
+  }
 }
 
 body {

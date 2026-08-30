@@ -2,18 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ProductCard } from '../features/products/components/product-card';
 import { PRODUCTS, isProductOnSale } from '../features/products/product-store';
-import { useAppStore } from '../store/use-app-store';
 import { usePageMeta } from '../hooks/use-page-meta';
 import { Breadcrumbs } from '../components/ui/breadcrumbs';
 
 const SIZE_ORDER = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-
-const currencyOptions = [
-    { value: 'USD', label: 'USD ($)' },
-    { value: 'GHS', label: 'GHS (₵)' },
-    { value: 'EUR', label: 'EUR (€)' },
-    { value: 'GBP', label: 'GBP (£)' },
-];
 
 const sortOptions = [
     { value: 'featured', label: 'Featured' },
@@ -30,7 +22,6 @@ export function ShopPage() {
             'Browse the full Rudambek Clothing catalog — African print dresses, kaftans, resort shirts, and more, designed and made in Ghana.',
     });
 
-    const { currentCurrency, setCurrency } = useAppStore();
     const [searchParams, setSearchParams] = useSearchParams();
 
     const activeCategory = searchParams.get('category') || 'All';
@@ -41,6 +32,13 @@ export function ShopPage() {
     const activeSizes = useMemo(
         () =>
             (searchParams.get('sizes') || '')
+                .split(',')
+                .filter(Boolean),
+        [searchParams]
+    );
+    const activeGroups = useMemo(
+        () =>
+            (searchParams.get('groups') || '')
                 .split(',')
                 .filter(Boolean),
         [searchParams]
@@ -74,6 +72,15 @@ export function ShopPage() {
         return SIZE_ORDER.filter((size) => sizes.has(size));
     }, []);
 
+    const availableGroups = useMemo(
+        () =>
+            PRODUCTS.map((product) => ({
+                id: product.id,
+                name: product.name,
+            })).sort((a, b) => a.name.localeCompare(b.name)),
+        []
+    );
+
     const priceBounds = useMemo(() => {
         const prices = PRODUCTS.map((product) => product.price);
         return {
@@ -83,7 +90,10 @@ export function ShopPage() {
     }, []);
 
     const activeFilterCount =
-        (minPrice ? 1 : 0) + (maxPrice ? 1 : 0) + (activeSizes.length > 0 ? 1 : 0);
+        (minPrice ? 1 : 0) +
+        (maxPrice ? 1 : 0) +
+        (activeSizes.length > 0 ? 1 : 0) +
+        (activeGroups.length > 0 ? 1 : 0);
 
     const filteredProducts = useMemo(() => {
         let results = PRODUCTS;
@@ -128,6 +138,12 @@ export function ShopPage() {
             );
         }
 
+        if (activeGroups.length > 0) {
+            results = results.filter((product) =>
+                activeGroups.includes(product.id)
+            );
+        }
+
         if (activeSort === 'sale') {
             results = results.filter(isProductOnSale);
         } else if (activeSort === 'newest') {
@@ -140,8 +156,28 @@ export function ShopPage() {
             results = [...results].sort((a, b) => b.price - a.price);
         }
 
+        // When filtering by a specific design/Group Name, show every color
+        // variant as its own card instead of one card with a swatch picker.
+        if (activeGroups.length > 0) {
+            results = results.flatMap((product) => {
+                if (!product.colors || product.colors.length < 2) {
+                    return [product];
+                }
+
+                return product.colors.map((color, index) => ({
+                    ...product,
+                    name: `${product.name} — ${color.name}`,
+                    image: color.image,
+                    images: color.images,
+                    imageAlt: `${product.name} — ${color.name}`,
+                    initialColorIndex: index,
+                    variantKey: `${product.id}::${color.name}`,
+                }));
+            });
+        }
+
         return results;
-    }, [activeCategory, searchQuery, activeSort, minPrice, maxPrice, activeSizes]);
+    }, [activeCategory, searchQuery, activeSort, minPrice, maxPrice, activeSizes, activeGroups]);
 
     const handleCategoryChange = (category) => {
         const nextParams = new URLSearchParams(searchParams);
@@ -200,11 +236,27 @@ export function ShopPage() {
         setSearchParams(nextParams);
     };
 
+    const handleGroupToggle = (groupId) => {
+        const nextParams = new URLSearchParams(searchParams);
+        const nextGroups = activeGroups.includes(groupId)
+            ? activeGroups.filter((value) => value !== groupId)
+            : [...activeGroups, groupId];
+
+        if (nextGroups.length > 0) {
+            nextParams.set('groups', nextGroups.join(','));
+        } else {
+            nextParams.delete('groups');
+        }
+
+        setSearchParams(nextParams);
+    };
+
     const handleClearFilters = () => {
         const nextParams = new URLSearchParams(searchParams);
         nextParams.delete('minPrice');
         nextParams.delete('maxPrice');
         nextParams.delete('sizes');
+        nextParams.delete('groups');
         setSearchParams(nextParams);
     };
 
@@ -326,12 +378,6 @@ export function ShopPage() {
                                 value={activeSort}
                                 onChange={handleSortChange}
                             />
-
-                            <CurrencySelect
-                                id="shop-currency"
-                                value={currentCurrency}
-                                onChange={setCurrency}
-                            />
                         </div>
                     </div>
                 </div>
@@ -347,8 +393,9 @@ export function ShopPage() {
                         <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-7">
                             {filteredProducts.map((product) => (
                                 <ProductCard
-                                    key={product.id}
+                                    key={product.variantKey || product.id}
                                     product={product}
+                                    showColorSwatches={activeGroups.length === 0}
                                 />
                             ))}
                         </div>
@@ -380,6 +427,9 @@ export function ShopPage() {
                 availableSizes={availableSizes}
                 activeSizes={activeSizes}
                 onSizeToggle={handleSizeToggle}
+                availableGroups={availableGroups}
+                activeGroups={activeGroups}
+                onGroupToggle={handleGroupToggle}
                 onClear={handleClearFilters}
                 resultCount={filteredProducts.length}
             />
@@ -429,6 +479,9 @@ function FilterDrawer({
     availableSizes,
     activeSizes,
     onSizeToggle,
+    availableGroups,
+    activeGroups,
+    onGroupToggle,
     onClear,
     resultCount,
 }) {
@@ -550,6 +603,38 @@ function FilterDrawer({
                             })}
                         </div>
                     </div>
+
+                    <div className="mt-10">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                            Group Names
+                        </h3>
+
+                        <div className="mt-4 flex flex-wrap gap-2">
+                            {availableGroups.map((group) => {
+                                const isSelected = activeGroups.includes(
+                                    group.id
+                                );
+
+                                return (
+                                    <button
+                                        key={group.id}
+                                        type="button"
+                                        aria-pressed={isSelected}
+                                        tabIndex={isOpen ? 0 : -1}
+                                        onClick={() =>
+                                            onGroupToggle(group.id)
+                                        }
+                                        className={`min-h-11 cursor-pointer border px-3 text-sm font-medium transition ${isSelected
+                                                ? 'border-slate-900 bg-slate-900 text-white'
+                                                : 'border-slate-300 text-slate-700 hover:border-slate-900'
+                                            }`}
+                                    >
+                                        {group.name}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="border-t border-slate-100 px-6 py-6">
@@ -607,31 +692,6 @@ function SortSelect({ id, value, onChange }) {
     );
 }
 
-function CurrencySelect({ id, value, onChange }) {
-    return (
-        <div className="flex shrink-0 items-center gap-2">
-            <label
-                htmlFor={id}
-                className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500"
-            >
-                Currency
-            </label>
-
-            <select
-                id={id}
-                value={value}
-                onChange={(event) => onChange(event.target.value)}
-                className="min-h-10 cursor-pointer rounded-none border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-[#a6814c] focus:ring-1 focus:ring-[#a6814c]"
-            >
-                {currencyOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
-        </div>
-    );
-}
 
 function EmptyCategory({ onReset, searchQuery }) {
     return (

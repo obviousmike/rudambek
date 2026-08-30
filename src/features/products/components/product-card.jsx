@@ -5,6 +5,7 @@ import { useCartStore } from '../../cart/cart-store';
 import { useWishlistStore } from '../../wishlist/wishlist-store';
 import { useQuickViewStore } from '../quick-view-store';
 import { HeartIcon } from '../../../components/ui/heart-icon';
+import { ColorSwatches } from '../../../components/ui/color-swatches';
 import {
     getDiscountPercentage,
     getProductBadge,
@@ -15,8 +16,8 @@ import { BADGE_TONE_CLASSES } from '../badge-styles';
 const GOLD = '#c9a24b';
 const GOLD_HOVER = '#a8822f';
 
-export function ProductCard({ product, compact = false }) {
-    const formatPrice = useAppStore((state) => state.formatPrice);
+export function ProductCard({ product, compact = false, showColorSwatches = true }) {
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const isWishlisted = useWishlistStore((state) =>
         state.isInWishlist(product.id)
@@ -25,12 +26,17 @@ export function ProductCard({ product, compact = false }) {
     const openQuickView = useQuickViewStore((state) => state.openQuickView);
 
     const [justAdded, setJustAdded] = useState(false);
+    const [selectedColorIndex, setSelectedColorIndex] = useState(
+        product.initialColorIndex ?? 0
+    );
 
     const onSale = isProductOnSale(product);
     const discountPercentage = getDiscountPercentage(product);
     const badge = getProductBadge(product);
     const inStock = product.stock > 0;
     const productPath = `/product/${product.id}`;
+    const activeColor = product.colors?.[selectedColorIndex];
+    const displayImage = activeColor?.image ?? product.image;
 
     useEffect(() => {
         if (!justAdded) return undefined;
@@ -44,6 +50,9 @@ export function ProductCard({ product, compact = false }) {
 
         addToCart({
             ...product,
+            image: displayImage,
+            images: activeColor?.images ?? product.images,
+            color: activeColor?.name,
             quantity: 1,
         });
         setJustAdded(true);
@@ -69,10 +78,11 @@ export function ProductCard({ product, compact = false }) {
             <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
                 <Link
                     to={productPath}
+                    state={{ initialColorIndex: selectedColorIndex }}
                     className="absolute inset-0 block outline-none focus-visible:ring-2 focus-visible:ring-[#c9a24b] focus-visible:ring-offset-2"
                 >
                     <img
-                        src={product.image}
+                        src={displayImage}
                         alt={product.imageAlt || product.name}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -123,6 +133,7 @@ export function ProductCard({ product, compact = false }) {
 
                 <Link
                     to={productPath}
+                    state={{ initialColorIndex: selectedColorIndex }}
                     className="outline-none focus-visible:ring-2 focus-visible:ring-[#c9a24b]"
                 >
                     <h2 className="mt-1 line-clamp-2 font-serif text-[15px] leading-tight text-slate-900 transition-colors group-hover:text-[#a6814c] sm:text-base">
@@ -153,7 +164,7 @@ export function ProductCard({ product, compact = false }) {
                         className={`text-sm font-semibold ${onSale ? 'text-[#a33f32]' : 'text-slate-900'
                             }`}
                     >
-                        {formatPrice(product.price)}
+                        {formatDualPrice(product.price)}
                     </span>
 
                     {onSale && (
@@ -162,7 +173,7 @@ export function ProductCard({ product, compact = false }) {
                                 <span className="sr-only">
                                     Original price:
                                 </span>
-                                {formatPrice(product.compareAtPrice)}
+                                {formatDualPrice(product.compareAtPrice)}
                             </s>
 
                             <span className="text-[9px] font-semibold text-[#a33f32]">
@@ -171,6 +182,17 @@ export function ProductCard({ product, compact = false }) {
                         </>
                     )}
                 </div>
+
+                {showColorSwatches && product.colors?.length > 1 && (
+                    <div className="mt-2">
+                        <ColorSwatches
+                            colors={product.colors}
+                            selectedIndex={selectedColorIndex}
+                            onSelect={setSelectedColorIndex}
+                            size="sm"
+                        />
+                    </div>
+                )}
 
                 <button
                     type="button"

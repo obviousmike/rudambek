@@ -25,7 +25,7 @@ export function CartDrawer() {
     const removeFromCart = useCartStore((state) => state.removeFromCart);
     const updateQuantity = useCartStore((state) => state.updateQuantity);
     const getCartTotal = useCartStore((state) => state.getCartTotal);
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
 
     useEffect(() => {
         if (!isDrawerOpen) return undefined;
@@ -110,7 +110,7 @@ export function CartDrawer() {
                         <ul className="flex-1 overflow-y-auto divide-y divide-slate-100 px-6">
                             {cartItems.map((item) => (
                                 <li
-                                    key={item.id}
+                                    key={item.lineId}
                                     className="flex items-center gap-4 py-5"
                                 >
                                     <img
@@ -125,8 +125,13 @@ export function CartDrawer() {
                                         <p className="truncate text-sm font-medium text-slate-800">
                                             {item.name}
                                         </p>
+                                        {item.color && (
+                                            <p className="text-xs text-slate-400">
+                                                {item.color}
+                                            </p>
+                                        )}
                                         <p className="mt-0.5 text-xs text-slate-400">
-                                            {formatPrice(item.price)}
+                                            {formatDualPrice(item.price)}
                                         </p>
 
                                         <div className="mt-2 flex items-center gap-2">
@@ -137,7 +142,7 @@ export function CartDrawer() {
                                                 }
                                                 onClick={() =>
                                                     updateQuantity(
-                                                        item.id,
+                                                        item.lineId,
                                                         -1
                                                     )
                                                 }
@@ -156,7 +161,7 @@ export function CartDrawer() {
                                                 }
                                                 onClick={() =>
                                                     updateQuantity(
-                                                        item.id,
+                                                        item.lineId,
                                                         1
                                                     )
                                                 }
@@ -172,7 +177,7 @@ export function CartDrawer() {
                                         type="button"
                                         tabIndex={isDrawerOpen ? 0 : -1}
                                         onClick={() =>
-                                            removeFromCart(item.id)
+                                            removeFromCart(item.lineId)
                                         }
                                         aria-label={`Remove ${item.name}`}
                                         className="shrink-0 cursor-pointer text-xs font-medium text-slate-400 transition hover:text-red-500"
@@ -187,7 +192,7 @@ export function CartDrawer() {
                             <div className="flex items-center justify-between text-sm text-slate-500">
                                 <span>Subtotal</span>
                                 <span className="font-serif text-xl text-slate-900">
-                                    {formatPrice(getCartTotal())}
+                                    {formatDualPrice(getCartTotal())}
                                 </span>
                             </div>
 

@@ -12,7 +12,7 @@ const GOLD = '#c9a24b';
 export function WishlistPage() {
     usePageMeta({ title: 'Wishlist', noIndex: true });
 
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const wishlistItems = useWishlistStore((state) => state.wishlistItems);
     const removeFromWishlist = useWishlistStore(
@@ -82,7 +82,7 @@ export function WishlistPage() {
                                     <Link to={`/product/${product.id}`}>
                                         <h3 className="mt-1.5 font-serif text-lg text-slate-900 hover:text-[#a8822f] transition-colors">{product.name}</h3>
                                     </Link>
-                                    <p className="mt-2 text-base font-semibold text-slate-900">{formatPrice(product.price)}</p>
+                                    <p className="mt-2 text-base font-semibold text-slate-900">{formatDualPrice(product.price)}</p>
                                     <div className="mt-4 flex gap-3">
                                         <button
                                             onClick={() => addToCart(product)}

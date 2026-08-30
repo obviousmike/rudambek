@@ -87,7 +87,7 @@ export function CheckoutPage() {
     const cartItems = useCartStore((state) => state.cartItems);
     const getCartTotal = useCartStore((state) => state.getCartTotal);
     const clearCart = useCartStore((state) => state.clearCart);
-    const formatPrice = useAppStore((state) => state.formatPrice);
+    const formatDualPrice = useAppStore((state) => state.formatDualPrice);
 
     const paystackReady = usePaystackScript();
 
@@ -327,7 +327,7 @@ export function CheckoutPage() {
                     <ul className="space-y-4">
                         {cartItems.map((item) => (
                             <li
-                                key={item.id}
+                                key={item.lineId}
                                 className="flex items-center gap-3"
                             >
                                 <img
@@ -339,12 +339,17 @@ export function CheckoutPage() {
                                     <p className="truncate text-sm font-medium text-slate-800">
                                         {item.name}
                                     </p>
+                                    {item.color && (
+                                        <p className="text-xs text-slate-400">
+                                            {item.color}
+                                        </p>
+                                    )}
                                     <p className="text-xs text-slate-400">
                                         Qty {item.quantity}
                                     </p>
                                 </div>
                                 <p className="shrink-0 text-sm font-semibold text-slate-900">
-                                    {formatPrice(item.price * item.quantity)}
+                                    {formatDualPrice(item.price * item.quantity)}
                                 </p>
                             </li>
                         ))}
@@ -353,7 +358,7 @@ export function CheckoutPage() {
                     <div className="border-t border-slate-100 pt-4">
                         <div className="flex items-center justify-between text-sm text-slate-500">
                             <span>Subtotal</span>
-                            <span>{formatPrice(subtotalUSD)}</span>
+                            <span>{formatDualPrice(subtotalUSD)}</span>
                         </div>
 
                         <div className="mt-2 flex items-center justify-between">

@@ -469,8 +469,8 @@ function ProductsSection() {
     return (
         <section className="py-24 sm:py-32 lg:py-36">
             <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div className="lg:col-span-4">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div className="min-w-0 lg:col-span-4">
                         <SectionLabel>Our products</SectionLabel>
 
                         <h2 className="mt-3 font-serif text-3xl leading-tight text-slate-900 sm:text-4xl">
@@ -486,7 +486,7 @@ function ProductsSection() {
                         </p>
                     </div>
 
-                    <div className="lg:col-span-7 lg:col-start-6">
+                    <div className="min-w-0 lg:col-span-7 lg:col-start-6">
                         <div className="grid gap-x-8 sm:grid-cols-2">
                             {PRODUCT_LINES.map((product, index) => {
                                 const destination = product.category
@@ -538,8 +538,8 @@ function UniqueSellingPropositionSection() {
     return (
         <section className="border-b border-black/[0.04] bg-white py-24 sm:py-32 lg:py-36">
             <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div className="lg:col-span-4">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div className="min-w-0 lg:col-span-4">
                         <SectionLabel>Unique Selling Proposition</SectionLabel>
 
                         <h2 className="mt-3 font-serif text-3xl leading-tight text-slate-900 sm:text-4xl">
@@ -549,7 +549,7 @@ function UniqueSellingPropositionSection() {
                         <GoldRule />
                     </div>
 
-                    <div className="lg:col-span-7 lg:col-start-6">
+                    <div className="min-w-0 lg:col-span-7 lg:col-start-6">
                         <ul className="space-y-4">
                             {USP_ITEMS.map((item) => (
                                 <li
@@ -656,8 +656,8 @@ function SizingGuideSection() {
             className="scroll-mt-[156px] py-24 sm:py-32 lg:py-36"
         >
             <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div className="lg:col-span-4">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div className="min-w-0 lg:col-span-4">
                         <SectionLabel>Sizing guide</SectionLabel>
 
                         <h2 className="mt-3 font-serif text-3xl leading-tight text-slate-900 sm:text-4xl">
@@ -686,7 +686,7 @@ function SizingGuideSection() {
                         </Link>
                     </div>
 
-                    <div className="lg:col-span-7 lg:col-start-6">
+                    <div className="min-w-0 lg:col-span-7 lg:col-start-6">
                         <div className="overflow-x-auto">
                             <table className="w-full min-w-[480px] border-collapse text-left text-sm">
                                 <thead>
@@ -763,8 +763,8 @@ function CareInstructionsSection() {
             className="scroll-mt-[156px] bg-white py-24 sm:py-32 lg:py-36"
         >
             <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div className="lg:col-span-4">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div className="min-w-0 lg:col-span-4">
                         <SectionLabel>Care instructions</SectionLabel>
 
                         <h2 className="mt-3 font-serif text-3xl leading-tight text-slate-900 sm:text-4xl">
@@ -780,7 +780,7 @@ function CareInstructionsSection() {
                         </p>
                     </div>
 
-                    <div className="lg:col-span-7 lg:col-start-6">
+                    <div className="min-w-0 lg:col-span-7 lg:col-start-6">
                         <ul className="space-y-4">
                             {CARE_ITEMS.map((item) => (
                                 <li
