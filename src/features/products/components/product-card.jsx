@@ -194,6 +194,14 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
                     </div>
                 )}
 
+                {!showColorSwatches && product.colors?.length > 1 && (
+                    <p className="mt-1.5 text-[10px] text-slate-400">
+                        {product.colors.length} colors available
+                    </p>
+                )}
+
+                <div className="flex-1" />
+
                 <button
                     type="button"
                     onClick={handleAddToCart}

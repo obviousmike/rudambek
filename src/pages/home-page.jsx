@@ -8,17 +8,21 @@ import { AsSeenOnSection } from './as-seen-on-page';
 import { usePageMeta } from '../hooks/use-page-meta';
 import { TruckIcon, ShieldIcon, ReturnIcon, PinIcon } from '../components/ui/trust-icons';
 
-import editorial01 from '../assets/products/editorial-01.jpg';
 import editorial02 from '../assets/products/editorial-02.jpg';
-import editorial03 from '../assets/products/editorial-03.jpg';
 import editorial04 from '../assets/products/editorial-04.jpg';
 import editorial05 from '../assets/products/editorial-05.jpg';
 import editorial06 from '../assets/products/editorial-06.jpg';
 
-import embroideredKaftan from '../assets/products/embroidered-kaftan.jpg';
 import ankaraKaftan from '../assets/products/ankara-kaftan.jpg';
 import resortShirt from '../assets/products/resort-shirt.jpg';
 import amaniNation from '../assets/products/amani-nation.jpg';
+
+import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.PNG';
+import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.PNG';
+import tdPDesign from '../assets/products/TD-P Design GHS -  350.PNG';
+import tdFuguBatik from '../assets/products/TD-FUGU 01.PNG';
+import tdFuguChartreuse from '../assets/products/TD-FUGU 02.PNG';
+import tdFuguPlum from '../assets/products/TD-FUGU 03.PNG';
 
 const GOLD = '#c9a24b';
 
@@ -29,7 +33,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Contemporary African Wear',
         description:
             'Modern designs inspired by African heritage for everyday elegance.',
-        image: ankaraKaftan,
+        image: tdFuguChartreuse,
         span: 'lg:row-span-2 sm:col-span-2 lg:col-span-1',
         minHeight: 'min-h-[340px] sm:min-h-[420px] lg:min-h-0',
     },
@@ -39,7 +43,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Northern Heritage Collection',
         description:
             'Premium garments crafted from authentic handwoven Fugu fabric, celebrating the rich textile traditions of Northern Ghana.',
-        image: editorial06,
+        image: tdFuguBatik,
         span: 'sm:col-span-2 lg:col-span-2',
         minHeight: 'min-h-[280px] lg:min-h-0',
     },
@@ -49,7 +53,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Ready-to-Wear Collection',
         description:
             'Stylish, comfortable, and versatile outfits suitable for work, travel, social events, and casual wear.',
-        image: editorial03,
+        image: tdPDesign,
         span: 'lg:col-span-1',
         minHeight: 'min-h-[240px] lg:min-h-0',
     },
@@ -81,8 +85,8 @@ const CATEGORIES = [
         eyebrow: 'Womenswear',
         description:
             'Fluid shapes, considered volume, and effortless elegance in motion.',
-        image: embroideredKaftan,
-        shopCategory: 'Kaftans',
+        image: pFuguDesign,
+        shopCategory: 'Fugu',
     },
     {
         id: 'shirts',
@@ -108,8 +112,8 @@ const CATEGORIES = [
         eyebrow: 'Craft and identity',
         description:
             'Pieces inspired by African pattern, tradition, and textile craft.',
-        image: editorial01,
-        shopCategory: 'Two-Piece Sets',
+        image: tdFuguPlum,
+        shopCategory: 'Fugu',
     },
     {
         id: 'occasionwear',
@@ -126,7 +130,7 @@ const CATEGORIES = [
         eyebrow: 'The immediate edit',
         description:
             'Curated seasonal pieces available now, without compromise.',
-        image: editorial03,
+        image: pFuguPatches,
         shopCategory: 'All',
     },
     {
