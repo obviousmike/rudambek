@@ -2,30 +2,26 @@ import { FaInstagram } from 'react-icons/fa';
 import { usePageMeta } from '../hooks/use-page-meta';
 import { Breadcrumbs } from '../components/ui/breadcrumbs';
 
-import ankaraKaftan from '../assets/products/ankara-kaftan.jpg';
-import embroideredKaftan from '../assets/products/embroidered-kaftan.jpg';
-import resortShirt from '../assets/products/resort-shirt.jpg';
-import amaniNation from '../assets/products/amani-nation.jpg';
-import editorial01 from '../assets/products/editorial-01.jpg';
-import editorial02 from '../assets/products/editorial-02.jpg';
-import editorial03 from '../assets/products/editorial-03.jpg';
-import editorial04 from '../assets/products/editorial-04.jpg';
-import editorial05 from '../assets/products/editorial-05.jpg';
+import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.PNG';
+import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.PNG';
+import tdPDesign from '../assets/products/TD-P Design GHS -  350.PNG';
+import tdFuguDesign from '../assets/products/TD-FUGU Design 111 - GHS450.PNG';
+import tdFuguBatik from '../assets/products/TD-FUGU 01.PNG';
+import tdFuguChartreuse from '../assets/products/TD-FUGU 02.PNG';
+import tdFuguPlum from '../assets/products/TD-FUGU 03.PNG';
 
 const GOLD = '#C9A24B';
 
 const INSTAGRAM_URL = 'https://www.instagram.com/rudambek.style/';
 
 const GALLERY_ITEMS = [
-    { id: 1, img: ankaraKaftan, title: 'Ankara Print Silhouette' },
-    { id: 2, img: embroideredKaftan, title: 'Embroidered Kaftan Elegance' },
-    { id: 3, img: resortShirt, title: 'Resort Shirt Statement' },
-    { id: 4, img: amaniNation, title: 'Amani Two-Piece Set' },
-    { id: 5, img: editorial01, title: 'Heritage Editorial Look' },
-    { id: 6, img: editorial02, title: 'Occasionwear, Reimagined' },
-    { id: 7, img: editorial03, title: 'The Ready-to-Wear Edit' },
-    { id: 8, img: editorial04, title: 'Custom Made Couture' },
-    { id: 9, img: editorial05, title: 'Finished with Accessories' },
+    { id: 1, img: pFuguDesign, title: 'P-FUGU Design' },
+    { id: 2, img: pFuguPatches, title: 'P-FUGU Patches' },
+    { id: 3, img: tdPDesign, title: 'TD-P Design' },
+    { id: 4, img: tdFuguDesign, title: 'TD-FUGU Design 111 — Gold & Green' },
+    { id: 5, img: tdFuguBatik, title: 'TD-FUGU Design 111 — Maroon Batik' },
+    { id: 6, img: tdFuguChartreuse, title: 'TD-FUGU Design 111 — Chartreuse Tie-Dye' },
+    { id: 7, img: tdFuguPlum, title: 'TD-FUGU Design 111 — Plum Tie-Dye' },
 ];
 
 function GalleryCard({ item, duplicate = false, eager = false }) {
@@ -44,7 +40,7 @@ function GalleryCard({ item, duplicate = false, eager = false }) {
                     alt={duplicate ? '' : item.title}
                     loading={eager ? 'eager' : 'lazy'}
                     decoding="async"
-                    className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                    className="h-full w-full object-contain transition duration-700 ease-out group-hover:scale-105"
                 />
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/55 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
