@@ -30,11 +30,11 @@ function GalleryCard({ item, duplicate = false, eager = false }) {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-[220px] shrink-0 sm:w-[240px]"
+            className="group relative w-[190px] shrink-0 sm:w-[210px]"
             aria-hidden={duplicate ? 'true' : undefined}
             tabIndex={duplicate ? -1 : 0}
         >
-            <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
+            <div className="relative aspect-[3/5] overflow-hidden bg-[#efe8dc]">
                 <img
                     src={item.img}
                     alt={duplicate ? '' : item.title}
