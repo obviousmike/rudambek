@@ -83,7 +83,7 @@ export function AsSeenOnSection({ headingTag: HeadingTag = 'h2' }) {
                             id="aso-title"
                             className="font-display font-normal text-4xl leading-tight text-slate-900 sm:text-5xl"
                         >
-                            Spotted on style icons
+                            Rudambek in the wild
                         </HeadingTag>
 
                         <div
