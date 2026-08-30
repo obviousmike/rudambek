@@ -5,6 +5,7 @@ import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.PNG'
 import tdFuguBatik from '../../assets/products/TD-FUGU 01.PNG';
 import tdFuguChartreuse from '../../assets/products/TD-FUGU 02.PNG';
 import tdFuguPlum from '../../assets/products/TD-FUGU 03.PNG';
+import tdFuguCocoa from '../../assets/products/TD-FUGU 04.png';
 import editorial01 from '../../assets/products/editorial-01.jpg';
 import editorial02 from '../../assets/products/editorial-02.jpg';
 import editorial03 from '../../assets/products/editorial-03.jpg';
@@ -108,6 +109,7 @@ export const PRODUCTS = [
             { name: 'Maroon Batik', image: tdFuguBatik, images: [tdFuguBatik] },
             { name: 'Chartreuse Tie-Dye', image: tdFuguChartreuse, images: [tdFuguChartreuse] },
             { name: 'Plum Tie-Dye', image: tdFuguPlum, images: [tdFuguPlum] },
+            { name: 'Cocoa Tie-Dye', image: tdFuguCocoa, images: [tdFuguCocoa] },
         ],
         imageAlt: 'Tie-dye Fugu with a striped colorblock yoke and cuffs',
         description: 'An oversized tie-dye Fugu balanced by a striped colorblock yoke and cuffs, for a bold, considered silhouette.',
