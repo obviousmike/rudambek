@@ -1,8 +1,13 @@
 import pFuguDesign from '../../assets/products/P-FUGU Design GHS - 400.PNG';
 import pFuguPatches from '../../assets/products/P-FUGU Patches ghs - 450.PNG';
-import pFuguPatchesForest from '../../assets/products/P-FUGU Patches 01.PNG';
-import pFuguPatchesKente from '../../assets/products/P-FUGU Patches 02.PNG';
 import tdPDesign from '../../assets/products/TD-P Design GHS -  350.PNG';
+import fuguMTassels221 from '../../assets/products/FUGU-M-TASSELS 221.PNG';
+import fuguMTassels221Side from '../../assets/products/FUGU-M-TASSELS 221 SIDE.jpeg';
+import fuguMultiC from '../../assets/products/FUGU-MULTI C.PNG';
+import fuguMultiCSide from '../../assets/products/FUGU-MULTI C SIDE.PNG';
+import fuguMultiC01 from '../../assets/products/FUGU-MULTI C 01.PNG';
+import fuguMultiC01Side from '../../assets/products/FUGU-MULTI C 01 SIDE.jpeg';
+import fuguPDesign112 from '../../assets/products/FUGU-P-DESIGN 112.PNG';
 import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.PNG';
 import tdFuguBatik from '../../assets/products/TD-FUGU 01.PNG';
 import tdFuguChartreuse from '../../assets/products/TD-FUGU 02.PNG';
@@ -57,11 +62,9 @@ export const PRODUCTS = [
         images: [pFuguPatches],
         colors: [
             { name: 'Navy Patchwork', image: pFuguPatches, images: [pFuguPatches] },
-            { name: 'Forest Patchwork', image: pFuguPatchesForest, images: [pFuguPatchesForest] },
-            { name: 'Kente Patchwork', image: pFuguPatchesKente, images: [pFuguPatchesKente] },
         ],
-        imageAlt: 'Fugu with contrasting patchwork pockets and a striped colorblock',
-        description: 'An oversized Fugu layered with contrasting patch pockets and a bold striped colorblock, for a handcrafted, textural edge.',
+        imageAlt: 'Navy Fugu with woven plaid patchwork and fringe details',
+        description: 'This navy Fugu layers in woven plaid patches and raw fringe, with a striped collar adding a handcrafted, textural edge.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 8,
         featured: true,
@@ -122,6 +125,73 @@ export const PRODUCTS = [
         isNew: false,
         rating: 4.9,
         reviewCount: 143,
+    },
+    {
+        id: 'fugu-multi-c',
+        name: 'FUGU-MULTI C',
+        slug: 'fugu-multi-c',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Fugu',
+        image: fuguMultiC,
+        images: [fuguMultiC, fuguMultiCSide],
+        colors: [
+            { name: 'Gold & Burgundy Stripe', image: fuguMultiC, images: [fuguMultiC, fuguMultiCSide] },
+            { name: 'Forest & Sky Colorblock', image: fuguMultiC01, images: [fuguMultiC01, fuguMultiC01Side] },
+        ],
+        imageAlt: 'Striped Fugu with a metallic gold panel and fringe pockets',
+        description: 'A striped Fugu with contrasting patch pockets and fringe trim, finished with a bold colorblock panel for a handcrafted, textural edge.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 12,
+    },
+    {
+        id: 'fugu-p-design-112',
+        name: 'FUGU-P-DESIGN 112',
+        slug: 'fugu-p-design-112',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Fugu',
+        image: fuguPDesign112,
+        images: [fuguPDesign112],
+        colors: [
+            { name: 'Green & Gold Stripe', image: fuguPDesign112, images: [fuguPDesign112] },
+        ],
+        imageAlt: 'Striped Fugu with a black colorblock yoke and patch pockets',
+        description: 'A striped Fugu grounded by a bold black colorblock yoke and patch pockets, for a sharp, graphic silhouette.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 9,
+    },
+    {
+        id: 'fugu-m-tassels-221',
+        name: 'FUGU-M-TASSELS 221',
+        slug: 'fugu-m-tassels-221',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Fugu',
+        image: fuguMTassels221,
+        images: [fuguMTassels221, fuguMTassels221Side],
+        colors: [
+            { name: 'Multicolor Stripe', image: fuguMTassels221, images: [fuguMTassels221, fuguMTassels221Side] },
+        ],
+        imageAlt: 'Multicolor striped Fugu poncho with tassel fringe',
+        description: 'A relaxed, poncho-style Fugu in a rich multicolor stripe, finished with a V-neckline and tassel fringe hem for a bold, easy silhouette.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 7,
     },
     {
         id: 'editorial-flowing-gown',

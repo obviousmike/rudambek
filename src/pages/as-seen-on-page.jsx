@@ -4,14 +4,16 @@ import { Breadcrumbs } from '../components/ui/breadcrumbs';
 
 import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.PNG';
 import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.PNG';
-import pFuguPatchesForest from '../assets/products/P-FUGU Patches 01.PNG';
-import pFuguPatchesKente from '../assets/products/P-FUGU Patches 02.PNG';
 import tdPDesign from '../assets/products/TD-P Design GHS -  350.PNG';
 import tdFuguDesign from '../assets/products/TD-FUGU Design 111 - GHS450.PNG';
 import tdFuguBatik from '../assets/products/TD-FUGU 01.PNG';
 import tdFuguChartreuse from '../assets/products/TD-FUGU 02.PNG';
 import tdFuguPlum from '../assets/products/TD-FUGU 03.PNG';
 import tdFuguCocoa from '../assets/products/TD-FUGU 04.png';
+import fuguMultiC from '../assets/products/FUGU-MULTI C.PNG';
+import fuguMultiC01 from '../assets/products/FUGU-MULTI C 01.PNG';
+import fuguPDesign112 from '../assets/products/FUGU-P-DESIGN 112.PNG';
+import fuguMTassels221 from '../assets/products/FUGU-M-TASSELS 221.PNG';
 
 const GOLD = '#C9A24B';
 
@@ -19,15 +21,17 @@ const INSTAGRAM_URL = 'https://www.instagram.com/rudambek.style/';
 
 const GALLERY_ITEMS = [
     { id: 1, img: pFuguDesign, title: 'P-FUGU Design' },
-    { id: 2, img: pFuguPatches, title: 'P-FUGU Patches — Navy Patchwork' },
+    { id: 2, img: pFuguPatches, title: 'P-FUGU Patches' },
     { id: 3, img: tdPDesign, title: 'TD-P Design' },
     { id: 4, img: tdFuguDesign, title: 'TD-FUGU Design 111 — Gold & Green' },
     { id: 5, img: tdFuguBatik, title: 'TD-FUGU Design 111 — Maroon Batik' },
     { id: 6, img: tdFuguChartreuse, title: 'TD-FUGU Design 111 — Chartreuse Tie-Dye' },
     { id: 7, img: tdFuguPlum, title: 'TD-FUGU Design 111 — Plum Tie-Dye' },
     { id: 8, img: tdFuguCocoa, title: 'TD-FUGU Design 111 — Cocoa Tie-Dye' },
-    { id: 9, img: pFuguPatchesForest, title: 'P-FUGU Patches — Forest Patchwork' },
-    { id: 10, img: pFuguPatchesKente, title: 'P-FUGU Patches — Kente Patchwork' },
+    { id: 9, img: fuguMultiC, title: 'FUGU-MULTI C — Gold & Burgundy Stripe' },
+    { id: 10, img: fuguMultiC01, title: 'FUGU-MULTI C — Forest & Sky Colorblock' },
+    { id: 11, img: fuguPDesign112, title: 'FUGU-P-DESIGN 112' },
+    { id: 12, img: fuguMTassels221, title: 'FUGU-M-TASSELS 221' },
 ];
 
 function GalleryCard({ item, duplicate = false, eager = false }) {
