@@ -130,7 +130,7 @@ export const PRODUCTS = [
         id: 'fugu-multi-c',
         name: 'FUGU-MULTI C',
         slug: 'fugu-multi-c',
-        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        price: 75.8929, // GHS 850 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵850 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
         category: 'Fugu',
@@ -153,7 +153,7 @@ export const PRODUCTS = [
         id: 'fugu-p-design-112',
         name: 'FUGU-P-DESIGN 112',
         slug: 'fugu-p-design-112',
-        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        price: 71.4286, // GHS 800 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵800 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
         category: 'Fugu',
@@ -175,7 +175,7 @@ export const PRODUCTS = [
         id: 'fugu-m-tassels-221',
         name: 'FUGU-M-TASSELS 221',
         slug: 'fugu-m-tassels-221',
-        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        price: 71.4286, // GHS 800 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵800 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
         category: 'Fugu',
