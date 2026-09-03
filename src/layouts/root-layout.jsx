@@ -322,7 +322,7 @@ export function RootLayout() {
             </a>
 
             <div className="fixed inset-x-0 top-0 z-50 flex h-9 items-center justify-center bg-slate-900 px-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white">
-                <p className="truncate">Wear your identity. Live your style.</p>
+                <p className="truncate font-serif">Wear your identity. Live your style.</p>
             </div>
 
             <header
