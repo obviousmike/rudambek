@@ -6,6 +6,7 @@ import { usePageMeta } from '../hooks/use-page-meta';
 import { Breadcrumbs } from '../components/ui/breadcrumbs';
 
 const SIZE_ORDER = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+const PAGE_SIZE = 12;
 
 const sortOptions = [
     { value: 'featured', label: 'Featured' },
@@ -184,6 +185,44 @@ export function ShopPage() {
         return results;
     }, [activeCategory, searchQuery, activeSort, minPrice, maxPrice, activeSizes, activeGroups]);
 
+    const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
+    const requestedPage = Number(searchParams.get('page')) || 1;
+    const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
+    const paginatedProducts = filteredProducts.slice(
+        (currentPage - 1) * PAGE_SIZE,
+        currentPage * PAGE_SIZE
+    );
+
+    const handlePageChange = (page) => {
+        const nextParams = new URLSearchParams(searchParams);
+
+        if (page <= 1) {
+            nextParams.delete('page');
+        } else {
+            nextParams.set('page', String(page));
+        }
+
+        setSearchParams(nextParams);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    };
+
+    // Self-correct a stale/out-of-range page param — e.g. a bookmarked
+    // ?page=3 link, or switching filters while on a later page than the
+    // new result set has.
+    useEffect(() => {
+        if (requestedPage > totalPages) {
+            const nextParams = new URLSearchParams(searchParams);
+
+            if (totalPages <= 1) {
+                nextParams.delete('page');
+            } else {
+                nextParams.set('page', String(totalPages));
+            }
+
+            setSearchParams(nextParams, { replace: true });
+        }
+    }, [requestedPage, totalPages, searchParams, setSearchParams]);
+
     const handleCategoryChange = (category) => {
         const nextParams = new URLSearchParams(searchParams);
 
@@ -193,12 +232,14 @@ export function ShopPage() {
             nextParams.set('category', category);
         }
 
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
     const clearSearch = () => {
         const nextParams = new URLSearchParams(searchParams);
         nextParams.delete('search');
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
@@ -211,6 +252,7 @@ export function ShopPage() {
             nextParams.set('sort', sort);
         }
 
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
@@ -223,6 +265,7 @@ export function ShopPage() {
             nextParams.delete(field);
         }
 
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
@@ -238,6 +281,7 @@ export function ShopPage() {
             nextParams.delete('sizes');
         }
 
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
@@ -253,6 +297,7 @@ export function ShopPage() {
             nextParams.delete('groups');
         }
 
+        nextParams.delete('page');
         setSearchParams(nextParams);
     };
 
@@ -261,6 +306,7 @@ export function ShopPage() {
         nextParams.delete('minPrice');
         nextParams.delete('maxPrice');
         nextParams.delete('sizes');
+        nextParams.delete('page');
         nextParams.delete('groups');
         setSearchParams(nextParams);
     };
@@ -394,9 +440,9 @@ export function ShopPage() {
                 className="py-14 sm:py-20"
             >
                 <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-                    {filteredProducts.length > 0 ? (
+                    {paginatedProducts.length > 0 ? (
                         <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-7">
-                            {filteredProducts.map((product) => (
+                            {paginatedProducts.map((product) => (
                                 <ProductCard
                                     key={product.variantKey || product.id}
                                     product={product}
@@ -408,6 +454,14 @@ export function ShopPage() {
                         <EmptyCategory
                             searchQuery={searchQuery}
                             onReset={() => setSearchParams({})}
+                        />
+                    )}
+
+                    {totalPages > 1 && (
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
                         />
                     )}
 
@@ -697,6 +751,92 @@ function SortSelect({ id, value, onChange }) {
     );
 }
 
+
+function getPaginationRange(currentPage, totalPages) {
+    const delta = 1;
+    const pages = [];
+
+    for (let page = 1; page <= totalPages; page += 1) {
+        if (
+            page === 1 ||
+            page === totalPages ||
+            (page >= currentPage - delta && page <= currentPage + delta)
+        ) {
+            pages.push(page);
+        }
+    }
+
+    const withEllipsis = [];
+    let previousPage = null;
+
+    pages.forEach((page) => {
+        if (previousPage !== null && page - previousPage > 1) {
+            withEllipsis.push(`ellipsis-${page}`);
+        }
+
+        withEllipsis.push(page);
+        previousPage = page;
+    });
+
+    return withEllipsis;
+}
+
+function Pagination({ currentPage, totalPages, onPageChange }) {
+    const pageItems = getPaginationRange(currentPage, totalPages);
+
+    return (
+        <nav
+            aria-label="Product pages"
+            className="mt-14 flex items-center justify-center gap-2"
+        >
+            <button
+                type="button"
+                onClick={() => onPageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                aria-label="Previous page"
+                className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center border border-slate-300 text-slate-700 transition hover:border-slate-900 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-30"
+            >
+                ←
+            </button>
+
+            {pageItems.map((item) =>
+                typeof item === 'number' ? (
+                    <button
+                        key={item}
+                        type="button"
+                        onClick={() => onPageChange(item)}
+                        aria-current={item === currentPage ? 'page' : undefined}
+                        className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center text-xs font-semibold transition ${
+                            item === currentPage
+                                ? 'bg-slate-900 text-white'
+                                : 'border border-slate-300 text-slate-700 hover:border-slate-900 hover:text-slate-900'
+                        }`}
+                    >
+                        {item}
+                    </button>
+                ) : (
+                    <span
+                        key={item}
+                        aria-hidden="true"
+                        className="flex h-10 w-6 shrink-0 items-center justify-center text-slate-400"
+                    >
+                        …
+                    </span>
+                )
+            )}
+
+            <button
+                type="button"
+                onClick={() => onPageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                aria-label="Next page"
+                className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center border border-slate-300 text-slate-700 transition hover:border-slate-900 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-30"
+            >
+                →
+            </button>
+        </nav>
+    );
+}
 
 function EmptyCategory({ onReset, searchQuery }) {
     return (
