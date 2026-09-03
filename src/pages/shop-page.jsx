@@ -787,7 +787,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     return (
         <nav
             aria-label="Product pages"
-            className="mt-14 flex items-center justify-center gap-2"
+            className="mt-14 flex items-center gap-2 overflow-x-auto scrollbar-none px-5 sm:justify-center sm:px-0"
         >
             <button
                 type="button"
