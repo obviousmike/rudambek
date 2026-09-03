@@ -140,8 +140,10 @@ export const PRODUCTS = [
         image: fuguMultiC,
         images: [fuguMultiC, fuguMultiCSide],
         colors: [
-            { name: 'Gold & Burgundy Stripe', image: fuguMultiC, images: [fuguMultiC, fuguMultiCSide] },
-            { name: 'Forest & Sky Colorblock', image: fuguMultiC01, images: [fuguMultiC01, fuguMultiC01Side] },
+            { name: 'Gold & Burgundy Stripe — Front', image: fuguMultiC, images: [fuguMultiC] },
+            { name: 'Gold & Burgundy Stripe — Side', image: fuguMultiCSide, images: [fuguMultiCSide] },
+            { name: 'Forest & Sky Colorblock — Front', image: fuguMultiC01, images: [fuguMultiC01] },
+            { name: 'Forest & Sky Colorblock — Side', image: fuguMultiC01Side, images: [fuguMultiC01Side] },
         ],
         imageAlt: 'Striped Fugu with a metallic gold panel and fringe pockets',
         description: 'A striped Fugu with contrasting patch pockets and fringe trim, finished with a bold colorblock panel for a handcrafted, textural edge.',
@@ -185,7 +187,8 @@ export const PRODUCTS = [
         image: fuguMTassels221,
         images: [fuguMTassels221, fuguMTassels221Side],
         colors: [
-            { name: 'Multicolor Stripe', image: fuguMTassels221, images: [fuguMTassels221, fuguMTassels221Side] },
+            { name: 'Multicolor Stripe — Front', image: fuguMTassels221, images: [fuguMTassels221] },
+            { name: 'Multicolor Stripe — Side', image: fuguMTassels221Side, images: [fuguMTassels221Side] },
         ],
         imageAlt: 'Multicolor striped Fugu poncho with tassel fringe',
         description: 'A relaxed, poncho-style Fugu in a rich multicolor stripe, finished with a V-neckline and tassel fringe hem for a bold, easy silhouette.',
@@ -304,7 +307,8 @@ export const PRODUCTS = [
         image: burgundyStripeKaftan1,
         images: [burgundyStripeKaftan1, burgundyStripeKaftan2],
         colors: [
-            { name: 'Burgundy & Green Stripe', image: burgundyStripeKaftan1, images: [burgundyStripeKaftan1, burgundyStripeKaftan2] },
+            { name: 'Burgundy & Green Stripe — Look 1', image: burgundyStripeKaftan1, images: [burgundyStripeKaftan1] },
+            { name: 'Burgundy & Green Stripe — Look 2', image: burgundyStripeKaftan2, images: [burgundyStripeKaftan2] },
         ],
         imageAlt: 'Burgundy and green striped kaftan with a V-neck and patch pockets',
         description: 'An elegant floor-length kaftan in bold burgundy and green stripes, finished with a V-neckline and structured patch pockets for a striking, statement silhouette.',
