@@ -29,6 +29,7 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
     const [selectedColorIndex, setSelectedColorIndex] = useState(
         product.initialColorIndex ?? 0
     );
+    const [isImageHovered, setIsImageHovered] = useState(false);
 
     const onSale = isProductOnSale(product);
     const discountPercentage = getDiscountPercentage(product);
@@ -36,7 +37,10 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
     const inStock = product.stock > 0;
     const productPath = `/product/${product.id}`;
     const activeColor = product.colors?.[selectedColorIndex];
-    const displayImage = activeColor?.image ?? product.image;
+    const displayImage =
+        (isImageHovered && activeColor?.hoverImage) ||
+        activeColor?.image ||
+        product.image;
 
     useEffect(() => {
         if (!justAdded) return undefined;
@@ -75,7 +79,11 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
             className={`group relative flex min-w-0 flex-col overflow-hidden border border-slate-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-slate-200 hover:shadow-xl hover:shadow-slate-900/10 ${compact ? 'h-auto' : 'h-full'
                 }`}
         >
-            <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
+            <div
+                className="relative aspect-square w-full overflow-hidden bg-slate-100"
+                onMouseEnter={() => setIsImageHovered(true)}
+                onMouseLeave={() => setIsImageHovered(false)}
+            >
                 <Link
                     to={productPath}
                     state={{ initialColorIndex: selectedColorIndex }}

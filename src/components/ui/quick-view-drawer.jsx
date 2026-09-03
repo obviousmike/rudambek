@@ -88,6 +88,7 @@ export function QuickViewDrawer() {
     const [added, setAdded] = useState(false);
     const [sizeError, setSizeError] = useState(false);
     const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+    const [isImageHovered, setIsImageHovered] = useState(false);
 
     // Reset the form whenever a different product is shown, adjusted
     // directly during render (React's recommended pattern for "reset state
@@ -121,7 +122,10 @@ export function QuickViewDrawer() {
     const hasSizes = product.sizes?.length > 0;
     const inStock = product.stock > 0;
     const activeColor = product.colors?.[selectedColorIndex];
-    const displayImage = activeColor?.image ?? product.image;
+    const displayImage =
+        (isImageHovered && activeColor?.hoverImage) ||
+        activeColor?.image ||
+        product.image;
 
     const handleAddToCart = () => {
         if (hasSizes && !selectedSize) {
@@ -194,7 +198,11 @@ export function QuickViewDrawer() {
                 </button>
 
                 <div className="grid flex-1 sm:grid-cols-2">
-                    <div className="relative aspect-square overflow-hidden bg-slate-100 sm:aspect-auto sm:min-h-full">
+                    <div
+                        className="relative aspect-square overflow-hidden bg-slate-100 sm:aspect-auto sm:min-h-full"
+                        onMouseEnter={() => setIsImageHovered(true)}
+                        onMouseLeave={() => setIsImageHovered(false)}
+                    >
                         <img
                             key={activeColor?.name ?? product.image}
                             src={displayImage}

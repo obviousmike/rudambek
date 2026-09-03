@@ -140,10 +140,8 @@ export const PRODUCTS = [
         image: fuguMultiC,
         images: [fuguMultiC, fuguMultiCSide],
         colors: [
-            { name: 'Gold & Burgundy Stripe — Front', image: fuguMultiC, images: [fuguMultiC] },
-            { name: 'Gold & Burgundy Stripe — Side', image: fuguMultiCSide, images: [fuguMultiCSide] },
-            { name: 'Forest & Sky Colorblock — Front', image: fuguMultiC01, images: [fuguMultiC01] },
-            { name: 'Forest & Sky Colorblock — Side', image: fuguMultiC01Side, images: [fuguMultiC01Side] },
+            { name: 'Gold & Burgundy Stripe', image: fuguMultiC, hoverImage: fuguMultiCSide, images: [fuguMultiC, fuguMultiCSide] },
+            { name: 'Forest & Sky Colorblock', image: fuguMultiC01, hoverImage: fuguMultiC01Side, images: [fuguMultiC01, fuguMultiC01Side] },
         ],
         imageAlt: 'Striped Fugu with a metallic gold panel and fringe pockets',
         description: 'A striped Fugu with contrasting patch pockets and fringe trim, finished with a bold colorblock panel for a handcrafted, textural edge.',

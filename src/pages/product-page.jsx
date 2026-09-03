@@ -49,6 +49,7 @@ export function ProductPage() {
     const [selectedColorIndex, setSelectedColorIndex] = useState(
         location.state?.initialColorIndex ?? 0
     );
+    const [isImageHovered, setIsImageHovered] = useState(false);
 
     useEffect(() => {
         if (!lightboxOpen) return undefined;
@@ -85,7 +86,10 @@ export function ProductPage() {
     const inStock = product.stock > 0;
     const relatedProducts = getRelatedProducts(product);
     const activeColor = product.colors?.[selectedColorIndex];
-    const displayImage = activeColor?.image ?? product.image;
+    const displayImage =
+        (isImageHovered && activeColor?.hoverImage) ||
+        activeColor?.image ||
+        product.image;
 
     const productJsonLd = {
         '@context': 'https://schema.org',
@@ -191,7 +195,11 @@ export function ProductPage() {
                     aria-labelledby="product-title"
                     className="grid overflow-hidden border border-slate-100 bg-white md:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]"
                 >
-                    <div className="group relative block aspect-square w-full overflow-hidden bg-slate-100">
+                    <div
+                        className="group relative block aspect-square w-full overflow-hidden bg-slate-100"
+                        onMouseEnter={() => setIsImageHovered(true)}
+                        onMouseLeave={() => setIsImageHovered(false)}
+                    >
                         <button
                             type="button"
                             onClick={() => setLightboxOpen(true)}
