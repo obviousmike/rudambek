@@ -13,6 +13,9 @@ import tdFuguBatik from '../../assets/products/TD-FUGU 01.PNG';
 import tdFuguChartreuse from '../../assets/products/TD-FUGU 02.PNG';
 import tdFuguPlum from '../../assets/products/TD-FUGU 03.PNG';
 import tdFuguCocoa from '../../assets/products/TD-FUGU 04.png';
+import burgundyStripeKaftan1 from '../../assets/products/burgundy-stripe-kaftan-1.png';
+import burgundyStripeKaftan2 from '../../assets/products/burgundy-stripe-kaftan-2.png';
+import embroideredKaftanMen from '../../assets/products/embroidered-kaftan-men.png';
 import editorial01 from '../../assets/products/editorial-01.jpg';
 import editorial02 from '../../assets/products/editorial-02.jpg';
 import editorial03 from '../../assets/products/editorial-03.jpg';
@@ -289,6 +292,50 @@ export const PRODUCTS = [
         isNew: false,
         rating: 4.8,
         reviewCount: 107,
+    },
+    {
+        id: 'burgundy-stripe-kaftan',
+        name: 'BURGUNDY STRIPE KAFTAN',
+        slug: 'burgundy-stripe-kaftan',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Fugu',
+        image: burgundyStripeKaftan1,
+        images: [burgundyStripeKaftan1, burgundyStripeKaftan2],
+        colors: [
+            { name: 'Burgundy & Green Stripe', image: burgundyStripeKaftan1, images: [burgundyStripeKaftan1, burgundyStripeKaftan2] },
+        ],
+        imageAlt: 'Burgundy and green striped kaftan with a V-neck and patch pockets',
+        description: 'An elegant floor-length kaftan in bold burgundy and green stripes, finished with a V-neckline and structured patch pockets for a striking, statement silhouette.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.9,
+        reviewCount: 6,
+    },
+    {
+        id: 'embroidered-kaftan-men',
+        name: 'EMBROIDERED KAFTAN MEN',
+        slug: 'embroidered-kaftan-men',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: "Men's",
+        image: embroideredKaftanMen,
+        images: [embroideredKaftanMen],
+        colors: [
+            { name: 'Plum & Teal Embroidery', image: embroideredKaftanMen, images: [embroideredKaftanMen] },
+        ],
+        imageAlt: 'Plum embroidered agbada with teal detailing and matching cap',
+        description: 'A regal agbada in deep plum, richly embroidered in teal and paired with a matching cap for a commanding, ceremonial silhouette.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.9,
+        reviewCount: 4,
     },
 ];
 
