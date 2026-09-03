@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import embroideredKaftan from '../../assets/products/embroidered-kaftan.jpg';
-import ankaraKaftan from '../../assets/products/ankara-kaftan.jpg';
+import carousel1 from '../../assets/products/carousel 1.png';
+import carousel2 from '../../assets/products/carousel 2.png';
 import resortShirt from '../../assets/products/resort-shirt.jpg';
 
 // focus controls where the crop anchors on portrait images.
@@ -9,8 +9,8 @@ import resortShirt from '../../assets/products/resort-shirt.jpg';
 const SLIDES = [
     {
         id: 1,
-        image: ankaraKaftan,
-        focus: '50% 20%',       // shows face/upper body
+        image: carousel1,
+        focus: '50% 18%',       // shows face/upper body
         eyebrow: 'New Arrivals',
         titleLine1: 'WEAR YOUR',
         titleLine2Italic: 'IDENTITY.',
@@ -20,8 +20,8 @@ const SLIDES = [
     },
     {
         id: 2,
-        image: embroideredKaftan,
-        focus: '50% 25%',       // shows face/upper body
+        image: carousel2,
+        focus: '50% 18%',       // shows face/upper body
         eyebrow: 'Signature Prints',
         titleLine1: 'BOLD COLOR,',
         titleLine2Italic: 'BOLDER',
