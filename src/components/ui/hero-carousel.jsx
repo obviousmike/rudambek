@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import carousel1 from '../../assets/products/carousel 1.png';
 import carousel2 from '../../assets/products/carousel 2.png';
-import resortShirt from '../../assets/products/resort-shirt.jpg';
+import carousel3 from '../../assets/products/carousel 3.png';
 
 // focus controls where the crop anchors on portrait images.
 // Format: 'X% Y%' — e.g. '50% 20%' keeps the top-center in frame.
@@ -31,8 +31,8 @@ const SLIDES = [
     },
     {
         id: 3,
-        image: resortShirt,
-        focus: '50% 30%',       // seated pose — shows more of torso
+        image: carousel3,
+        focus: '50% 18%',       // shows face/upper body
         eyebrow: "Men's Edit",
         titleLine1: 'TAILORED',
         titleLine2Italic: 'FOR THE',
