@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
-import carousel1 from '../../assets/products/carousel 1.png';
-import carousel2 from '../../assets/products/carousel 2.png';
-import carousel3 from '../../assets/products/carousel 3.png';
+import carousel1 from '../../assets/products/carousel 1.jpg';
+import carousel2 from '../../assets/products/carousel 2.jpg';
+import carousel3 from '../../assets/products/carousel 3.jpg';
 
 // focus controls where the crop anchors on portrait images.
 // Format: 'X% Y%' — e.g. '50% 20%' keeps the top-center in frame.

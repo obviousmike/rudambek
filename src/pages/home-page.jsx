@@ -17,12 +17,12 @@ import ankaraKaftan from '../assets/products/ankara-kaftan.jpg';
 import resortShirt from '../assets/products/resort-shirt.jpg';
 import amaniNation from '../assets/products/amani-nation.jpg';
 
-import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.PNG';
-import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.PNG';
-import tdPDesign from '../assets/products/TD-P Design GHS -  350.PNG';
-import tdFuguBatik from '../assets/products/TD-FUGU 01.PNG';
-import tdFuguChartreuse from '../assets/products/TD-FUGU 02.PNG';
-import tdFuguPlum from '../assets/products/TD-FUGU 03.PNG';
+import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.jpg';
+import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.jpg';
+import tdPDesign from '../assets/products/TD-P Design GHS -  350.jpg';
+import tdFuguBatik from '../assets/products/TD-FUGU 01.jpg';
+import tdFuguChartreuse from '../assets/products/TD-FUGU 02.jpg';
+import tdFuguPlum from '../assets/products/TD-FUGU 03.jpg';
 
 const GOLD = '#c9a24b';
 
