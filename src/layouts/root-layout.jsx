@@ -15,7 +15,8 @@ import { WhatsAppButton } from '../components/ui/whatsapp-button';
 import { CartDrawer } from '../components/ui/cart-drawer';
 import { QuickViewDrawer } from '../components/ui/quick-view-drawer';
 
-const HEADER_HEIGHT = 100;
+const ANNOUNCEMENT_HEIGHT = 36;
+const HEADER_HEIGHT = 100 + ANNOUNCEMENT_HEIGHT;
 
 // Scroll position per history entry, so back/forward navigation can restore
 // where the user was instead of always landing at the top of the page.
@@ -320,8 +321,12 @@ export function RootLayout() {
                 Skip to content
             </a>
 
+            <div className="fixed inset-x-0 top-0 z-50 flex h-9 items-center justify-center bg-slate-900 px-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white">
+                <p className="truncate">Wear your identity. Live your style.</p>
+            </div>
+
             <header
-                className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-500 ${
+                className={`fixed left-0 right-0 top-9 z-50 border-b transition-all duration-500 ${
                     scrolled
                         ? 'border-slate-200/70 bg-white/90 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md'
                         : 'border-slate-100 bg-white shadow-[0_1px_20px_rgba(0,0,0,0.05)]'
@@ -537,7 +542,7 @@ export function RootLayout() {
                 id="main-content"
                 tabIndex={-1}
                 key={location.pathname}
-                className="page-transition w-full flex-1 pt-[100px] focus:outline-none"
+                className="page-transition w-full flex-1 pt-[136px] focus:outline-none"
             >
                 <Outlet />
             </div>
@@ -720,10 +725,14 @@ export function RootLayout() {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center pt-8 text-xs text-slate-500">
+                    <div className="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-slate-500 sm:flex-row">
                         <p>
                             &copy; {new Date().getFullYear()} Rudambek
                             Clothing. All rights reserved.
+                        </p>
+
+                        <p className="font-serif text-sm italic text-slate-600">
+                            Wear your identity. Live your style.
                         </p>
                     </div>
                 </div>
