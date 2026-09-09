@@ -71,27 +71,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rudambek.com/product/editorial-flowing-gown</loc>
+    <loc>https://rudambek.com/product/womens-patchwork-two-piece-set</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rudambek.com/product/structured-statement-dress</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudambek.com/product/signature-print-maxi</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudambek.com/product/relaxed-print-co-ord</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudambek.com/product/wrap-front-midi-dress</loc>
+    <loc>https://rudambek.com/product/womens-matching-shirt-pants-set</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -102,6 +87,26 @@
   </url>
   <url>
     <loc>https://rudambek.com/product/embroidered-kaftan-men</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rudambek.com/product/fugu-m-tassels-222</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rudambek.com/product/kaftan-440</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rudambek.com/product/resort-shirt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rudambek.com/product/mens-two-piece-set</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

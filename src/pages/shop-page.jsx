@@ -44,6 +44,7 @@ export function ShopPage() {
                 .filter(Boolean),
         [searchParams]
     );
+    const showAllColors = searchParams.get('showAllColors') === '1';
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -162,9 +163,10 @@ export function ShopPage() {
             results = [...results].sort((a, b) => b.price - a.price);
         }
 
-        // When filtering by a specific design/Group Name, show every color
-        // variant as its own card instead of one card with a swatch picker.
-        if (activeGroups.length > 0) {
+        // When filtering by a specific design/Group Name — or when "Show all
+        // colors" is on — show every color variant as its own card instead
+        // of one card with a swatch picker.
+        if (activeGroups.length > 0 || showAllColors) {
             results = results.flatMap((product) => {
                 if (!product.colors || product.colors.length < 2) {
                     return [product];
@@ -183,7 +185,7 @@ export function ShopPage() {
         }
 
         return results;
-    }, [activeCategory, searchQuery, activeSort, minPrice, maxPrice, activeSizes, activeGroups]);
+    }, [activeCategory, searchQuery, activeSort, minPrice, maxPrice, activeSizes, activeGroups, showAllColors]);
 
     const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
     const requestedPage = Number(searchParams.get('page')) || 1;
@@ -311,6 +313,19 @@ export function ShopPage() {
         setSearchParams(nextParams);
     };
 
+    const handleToggleShowAllColors = () => {
+        const nextParams = new URLSearchParams(searchParams);
+
+        if (showAllColors) {
+            nextParams.delete('showAllColors');
+        } else {
+            nextParams.set('showAllColors', '1');
+        }
+
+        nextParams.delete('page');
+        setSearchParams(nextParams);
+    };
+
     return (
         <main className="min-h-screen bg-[#faf7f3]">
             {/* Page header */}
@@ -414,6 +429,16 @@ export function ShopPage() {
                                     {activeCategory}
                                 </span>
                             )}
+
+                            <label className="flex cursor-pointer items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-600">
+                                <input
+                                    type="checkbox"
+                                    checked={showAllColors}
+                                    onChange={handleToggleShowAllColors}
+                                    className="h-4 w-4 cursor-pointer accent-[#c9a24b]"
+                                />
+                                Show all colors
+                            </label>
                         </div>
 
                         <div className="flex items-center justify-between gap-5 lg:justify-end">
@@ -446,7 +471,7 @@ export function ShopPage() {
                                 <ProductCard
                                     key={product.variantKey || product.id}
                                     product={product}
-                                    showColorSwatches={activeGroups.length === 0}
+                                    showColorSwatches={activeGroups.length === 0 && !showAllColors}
                                 />
                             ))}
                         </div>

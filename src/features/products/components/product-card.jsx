@@ -93,7 +93,7 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
                         src={displayImage}
                         alt={product.imageAlt || product.name}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                 </Link>
 

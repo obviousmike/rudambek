@@ -96,7 +96,7 @@ const CATEGORIES = [
         description:
             'Confident resort and occasion shirts made for modern self-expression.',
         image: resortShirt,
-        shopCategory: 'Shirts',
+        shopCategory: 'Men Shirt',
     },
     {
         id: 'sets',

@@ -34,7 +34,7 @@ const CATEGORIES = [
         description:
             'Expressive prints tailored into sharp, relaxed shirts that carry culture with confidence.',
         image: resortShirt,
-        shopCategory: "Men's",
+        shopCategory: 'Men Shirt',
         tag: "Men's",
     },
     {

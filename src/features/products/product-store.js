@@ -29,11 +29,24 @@ import kaftan440Grey from '../../assets/products/kaftan-440-1.jpeg';
 import kaftan440Wine from '../../assets/products/kaftan-440-2.jpeg';
 import kaftan440Cream from '../../assets/products/kaftan-440-3.jpeg';
 import kaftan440Green from '../../assets/products/kaftan-440-4.jpeg';
-import editorial01 from '../../assets/products/editorial-01.jpg';
-import editorial02 from '../../assets/products/editorial-02.jpg';
-import editorial03 from '../../assets/products/editorial-03.jpg';
-import editorial05 from '../../assets/products/editorial-05.jpg';
-import editorial06 from '../../assets/products/editorial-06.jpg';
+import resortShirt from '../../assets/products/resort-shirt.jpg';
+import menTwoPieceNavy from '../../assets/products/Men two piece 1.png';
+import menTwoPieceBrown from '../../assets/products/Men two piece 2.jpeg';
+import menTwoPieceCharcoal from '../../assets/products/Men two piece 3.jpeg';
+import menTwoPieceGrey from '../../assets/products/Men two piece 4.jpeg';
+import womenTwoPieceChocolateLeaf from '../../assets/products/Women two piece1.png';
+import womenTwoPieceWhiteRedBatik from '../../assets/products/Women two piece2.png';
+import womenTwoPieceTaupeBronzeIkat from '../../assets/products/Women two piece3.png';
+import womenTwoPieceBlackTropical from '../../assets/products/Women two piece4.png';
+import womenTwoPieceBlackGoldMonogram from '../../assets/products/Women two piece5.png';
+import womenTwoPieceBlackSunsetBatik from '../../assets/products/Women two piece6.png';
+import womenTwoPieceCobaltSunsetBatik from '../../assets/products/Women two piece7.png';
+import womenTwoPieceBlackFuchsiaAnkara from '../../assets/products/Women two piece8.png';
+import womenTwoPieceKhakiMaroonMedallion from '../../assets/products/Women two piece9.png';
+import womenTwoPieceWhiteEmeraldBatik from '../../assets/products/Women two piece11.png';
+import womenTwoPieceOliveStripe from '../../assets/products/Women two piece12.png';
+import womenTwoPieceBlushPinstripe from '../../assets/products/Women two piece13.PNG';
+import womenTwoPieceNavySolid from '../../assets/products/Women two piece14.PNG';
 
 export const PRODUCTS = [
     {
@@ -211,101 +224,70 @@ export const PRODUCTS = [
         reviewCount: 7,
     },
     {
-        id: 'editorial-flowing-gown',
-        name: 'Flowing Editorial Gown',
-        slug: 'editorial-flowing-gown',
-        price: 289,
+        id: 'womens-patchwork-two-piece-set',
+        name: "WOMEN'S PATCHWORK TWO-PIECE SET",
+        slug: 'womens-patchwork-two-piece-set',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
         compareAtPrice: null,
         currency: 'USD',
         category: 'Women Two-Piece',
-        image: editorial01,
-        images: [editorial01],
-        imageAlt: 'Flowing editorial gown',
-        description: 'A dramatic floor-length gown with fluid movement and refined silhouette — made for moments that demand presence.',
-        sizes: ['XS', 'S', 'M', 'L'],
-        stock: 6,
+        image: womenTwoPieceChocolateLeaf,
+        images: [
+            womenTwoPieceChocolateLeaf,
+            womenTwoPieceWhiteRedBatik,
+            womenTwoPieceTaupeBronzeIkat,
+            womenTwoPieceBlackTropical,
+            womenTwoPieceBlackGoldMonogram,
+            womenTwoPieceBlackSunsetBatik,
+            womenTwoPieceCobaltSunsetBatik,
+            womenTwoPieceBlackFuchsiaAnkara,
+            womenTwoPieceKhakiMaroonMedallion,
+            womenTwoPieceWhiteEmeraldBatik,
+        ],
+        colors: [
+            { name: 'Chocolate & Fern Leaf Print', image: womenTwoPieceChocolateLeaf, images: [womenTwoPieceChocolateLeaf] },
+            { name: 'White & Red Batik', image: womenTwoPieceWhiteRedBatik, images: [womenTwoPieceWhiteRedBatik] },
+            { name: 'Taupe & Bronze Ikat', image: womenTwoPieceTaupeBronzeIkat, images: [womenTwoPieceTaupeBronzeIkat] },
+            { name: 'Black & Tropical Abstract', image: womenTwoPieceBlackTropical, images: [womenTwoPieceBlackTropical] },
+            { name: 'Black & Gold Monogram', image: womenTwoPieceBlackGoldMonogram, images: [womenTwoPieceBlackGoldMonogram] },
+            { name: 'Black & Sunset Batik', image: womenTwoPieceBlackSunsetBatik, images: [womenTwoPieceBlackSunsetBatik] },
+            { name: 'Cobalt & Sunset Batik', image: womenTwoPieceCobaltSunsetBatik, images: [womenTwoPieceCobaltSunsetBatik] },
+            { name: 'Black & Fuchsia Ankara', image: womenTwoPieceBlackFuchsiaAnkara, images: [womenTwoPieceBlackFuchsiaAnkara] },
+            { name: 'Khaki & Maroon Medallion', image: womenTwoPieceKhakiMaroonMedallion, images: [womenTwoPieceKhakiMaroonMedallion] },
+            { name: 'White & Emerald Batik Leaf', image: womenTwoPieceWhiteEmeraldBatik, images: [womenTwoPieceWhiteEmeraldBatik] },
+        ],
+        imageAlt: 'Chocolate brown short-sleeve shirt with a leaf-print patch bib, paired with matching wide-leg leaf-print trousers',
+        description: 'A short-sleeve collared shirt with a contrast patchwork bib, paired with coordinating wide-leg print trousers — available in a range of bold fabric pairings for a striking, considered silhouette.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
         featured: true,
         isNew: true,
-        rating: 5.0,
-        reviewCount: 42,
+        rating: 4.8,
+        reviewCount: 3,
     },
     {
-        id: 'structured-statement-dress',
-        name: 'Structured Statement Dress',
-        slug: 'structured-statement-dress',
-        price: 215,
-        // compareAtPrice: 260, // superseded — placeholder "was" price, not a real sale
+        id: 'womens-matching-shirt-pants-set',
+        name: "WOMEN'S MATCHING SHIRT & PANTS SET",
+        slug: 'womens-matching-shirt-pants-set',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
         compareAtPrice: null,
         currency: 'USD',
         category: 'Women Two-Piece',
-        image: editorial02,
-        images: [editorial02],
-        imageAlt: 'Structured statement dress',
-        description: 'Clean lines meet expressive design in this structured midi dress — a wardrobe investment built to last seasons.',
+        image: womenTwoPieceOliveStripe,
+        images: [womenTwoPieceOliveStripe, womenTwoPieceBlushPinstripe, womenTwoPieceNavySolid],
+        colors: [
+            { name: 'Olive Stripe', image: womenTwoPieceOliveStripe, images: [womenTwoPieceOliveStripe] },
+            { name: 'Blush Pinstripe', image: womenTwoPieceBlushPinstripe, images: [womenTwoPieceBlushPinstripe] },
+            { name: 'Navy Solid', image: womenTwoPieceNavySolid, images: [womenTwoPieceNavySolid] },
+        ],
+        imageAlt: 'Olive striped long-sleeve shirt and matching wide-leg trousers',
+        description: 'A relaxed long-sleeve shirt and matching wide-leg trousers cut from the same fabric, for an easy, coordinated silhouette — available in striped and solid colorways.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        stock: 9,
-        featured: false,
+        stock: 5,
+        featured: true,
         isNew: true,
         rating: 4.8,
-        reviewCount: 58,
-    },
-    {
-        id: 'signature-print-maxi',
-        name: 'Signature Print Maxi',
-        slug: 'signature-print-maxi',
-        price: 185,
-        compareAtPrice: null,
-        currency: 'USD',
-        category: 'Women Two-Piece',
-        image: editorial03,
-        images: [editorial03],
-        imageAlt: 'Signature print maxi dress',
-        description: 'A bold maxi in one of Rudambek\'s signature prints — full length, full impact, effortlessly elegant.',
-        sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        stock: 14,
-        featured: false,
-        isNew: false,
-        rating: 4.7,
-        reviewCount: 81,
-    },
-    {
-        id: 'relaxed-print-co-ord',
-        name: 'Relaxed Print Co-ord',
-        slug: 'relaxed-print-co-ord',
-        price: 155,
-        // compareAtPrice: 185, // superseded — placeholder "was" price, not a real sale
-        compareAtPrice: null,
-        currency: 'USD',
-        category: 'Women Two-Piece',
-        image: editorial05,
-        images: [editorial05],
-        imageAlt: 'Relaxed print co-ord set',
-        description: 'A lightweight co-ord set in a seasonal print — wear together for a complete look or mix with your existing wardrobe.',
-        sizes: ['S', 'M', 'L', 'XL'],
-        stock: 11,
-        featured: false,
-        isNew: true,
-        rating: 4.6,
-        reviewCount: 63,
-    },
-    {
-        id: 'wrap-front-midi-dress',
-        name: 'Wrap-Front Midi Dress',
-        slug: 'wrap-front-midi-dress',
-        price: 139,
-        compareAtPrice: null,
-        currency: 'USD',
-        category: 'Women Two-Piece',
-        image: editorial06,
-        images: [editorial06],
-        imageAlt: 'Wrap-front midi dress',
-        description: 'A versatile wrap-front midi with an adjustable fit and flattering silhouette — a reliable cornerstone for any wardrobe.',
-        sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        stock: 18,
-        featured: false,
-        isNew: false,
-        rating: 4.8,
-        reviewCount: 107,
+        reviewCount: 3,
     },
     {
         id: 'burgundy-stripe-kaftan',
@@ -399,6 +381,53 @@ export const PRODUCTS = [
         ],
         imageAlt: 'Sky blue men’s kaftan with a mandarin collar and navy piped placket',
         description: 'A modern men’s kaftan in a clean silhouette, finished with a mandarin collar, navy piped placket, and a single breast pocket, paired with matching trousers for a polished, contemporary look.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
+    },
+    {
+        id: 'resort-shirt',
+        name: 'Printed Resort Shirt',
+        slug: 'printed-resort-shirt',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Men Shirt',
+        image: resortShirt,
+        images: [resortShirt],
+        colors: [
+            { name: 'Teal Geometric Print', image: resortShirt, images: [resortShirt] },
+        ],
+        imageAlt: 'Teal geometric print resort shirt with red and tan accents, paired with checked trousers',
+        description: 'A short-sleeve resort shirt in a bold teal geometric print with red and tan accents, cut for a relaxed, confident silhouette.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
+    },
+    {
+        id: 'mens-two-piece-set',
+        name: "MEN'S TWO-PIECE SET",
+        slug: 'mens-two-piece-set',
+        price: 44.6429, // GHS 500 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵500 when currency is set to GHS
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Men Two-Piece',
+        image: menTwoPieceNavy,
+        images: [menTwoPieceNavy, menTwoPieceBrown, menTwoPieceCharcoal, menTwoPieceGrey],
+        colors: [
+            { name: 'Navy Blue', image: menTwoPieceNavy, images: [menTwoPieceNavy] },
+            { name: 'Brown & Black Colorblock', image: menTwoPieceBrown, images: [menTwoPieceBrown] },
+            { name: 'Charcoal Grey', image: menTwoPieceCharcoal, images: [menTwoPieceCharcoal] },
+            { name: 'Grey & Blue Trim', image: menTwoPieceGrey, images: [menTwoPieceGrey] },
+        ],
+        imageAlt: 'Navy blue men’s two-piece set with a mandarin collar and matching trousers',
+        description: 'A tailored men’s two-piece set pairing a mandarin-collar tunic with matching trousers, cut for a clean, coordinated silhouette suited to both formal and everyday occasions.',
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         stock: 5,
         featured: true,
