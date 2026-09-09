@@ -20,9 +20,9 @@ import amaniNation from '../assets/products/amani-nation.jpg';
 import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.jpg';
 import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.jpg';
 import tdPDesign from '../assets/products/TD-P Design GHS -  350.jpg';
-import tdFuguBatik from '../assets/products/TD-FUGU 01.jpg';
 import tdFuguChartreuse from '../assets/products/TD-FUGU 02.jpg';
 import tdFuguPlum from '../assets/products/TD-FUGU 03.jpg';
+import fuguMTassels221 from '../assets/products/FUGU-M-TASSELS 221.jpg';
 
 const GOLD = '#c9a24b';
 
@@ -43,7 +43,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Northern Heritage Collection',
         description:
             'Premium garments crafted from authentic handwoven Fugu fabric, celebrating the rich textile traditions of Northern Ghana.',
-        image: tdFuguBatik,
+        image: fuguMTassels221,
         span: 'sm:col-span-2 lg:col-span-2',
         minHeight: 'min-h-[280px] lg:min-h-0',
     },
@@ -87,7 +87,7 @@ const CATEGORIES = [
             'Fluid shapes, considered volume, and effortless elegance in motion.',
         image: pFuguDesign,
         imageFit: 'contain',
-        shopCategory: 'Fugu',
+        shopCategory: "Women's Fugu",
     },
     {
         id: 'shirts',
@@ -115,7 +115,7 @@ const CATEGORIES = [
             'Pieces inspired by African pattern, tradition, and textile craft.',
         image: tdFuguPlum,
         imageFit: 'contain',
-        shopCategory: 'Fugu',
+        shopCategory: "Women's Fugu",
     },
     {
         id: 'occasionwear',

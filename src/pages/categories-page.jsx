@@ -56,12 +56,21 @@ const CATEGORIES = [
         tag: "Women's",
     },
     {
-        id: 'northern-ghana-fugu',
-        name: 'Northern Ghana Fugu (Smock) Wear',
+        id: 'northern-ghana-fugu-women',
+        name: "Women's Fugu (Smock) Wear",
         description:
             'Handwoven smock fabric from Northern Ghana, fashioned into statement pieces that honour tradition.',
         image: editorial01,
-        shopCategory: 'Fugu',
+        shopCategory: "Women's Fugu",
+        tag: 'Heritage',
+    },
+    {
+        id: 'northern-ghana-fugu-men',
+        name: "Men's Fugu (Smock) Wear",
+        description:
+            'Handwoven smock fabric from Northern Ghana, tailored into statement pieces that honour tradition.',
+        image: editorial01,
+        shopCategory: "Men's Fugu",
         tag: 'Heritage',
     },
     {

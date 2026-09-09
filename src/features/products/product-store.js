@@ -7,6 +7,11 @@ import fuguMultiC from '../../assets/products/FUGU-MULTI C.jpg';
 import fuguMultiCSide from '../../assets/products/FUGU-MULTI C SIDE.jpg';
 import fuguMultiC01 from '../../assets/products/FUGU-MULTI C 01.jpg';
 import fuguMultiC01Side from '../../assets/products/FUGU-MULTI C 01 SIDE.jpeg';
+import fuguMultiC02 from '../../assets/products/FUGU-MULTI C 02.jpg';
+import fuguMTassels222 from '../../assets/products/FUGU-M-TASSELS 222.jpg';
+import fuguMTassels222Maroon from '../../assets/products/FUGU-M-TASSELS 222-1.jpeg';
+import fuguMTassels222Green from '../../assets/products/FUGU-M-TASSELS 222-2.jpeg';
+import fuguMTassels222Mustard from '../../assets/products/FUGU-M-TASSELS 222-3.jpeg';
 import fuguPDesign112 from '../../assets/products/FUGU-P-DESIGN 112.jpg';
 import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.jpg';
 import tdFuguBatik from '../../assets/products/TD-FUGU 01.jpg';
@@ -15,7 +20,15 @@ import tdFuguPlum from '../../assets/products/TD-FUGU 03.jpg';
 import tdFuguCocoa from '../../assets/products/TD-FUGU 04.jpg';
 import burgundyStripeKaftan1 from '../../assets/products/burgundy-stripe-kaftan-1.jpg';
 import burgundyStripeKaftan2 from '../../assets/products/burgundy-stripe-kaftan-2.jpg';
+import burgundyStripeKaftan3 from '../../assets/products/burgundy-stripe-kaftan-3.jpg';
+import burgundyStripeKaftan4 from '../../assets/products/burgundy-stripe-kaftan-4.jpg';
 import embroideredKaftanMen from '../../assets/products/embroidered-kaftan-men.jpg';
+import embroideredKaftanMen1 from '../../assets/products/embroidered-kaftan-men 1.jpg';
+import kaftan440Blue from '../../assets/products/kaftan-440.jpeg';
+import kaftan440Grey from '../../assets/products/kaftan-440-1.jpeg';
+import kaftan440Wine from '../../assets/products/kaftan-440-2.jpeg';
+import kaftan440Cream from '../../assets/products/kaftan-440-3.jpeg';
+import kaftan440Green from '../../assets/products/kaftan-440-4.jpeg';
 import editorial01 from '../../assets/products/editorial-01.jpg';
 import editorial02 from '../../assets/products/editorial-02.jpg';
 import editorial03 from '../../assets/products/editorial-03.jpg';
@@ -33,7 +46,7 @@ export const PRODUCTS = [
         price: 35.7143, // GHS 400 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵400 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: pFuguDesign,
         images: [pFuguDesign],
         // Color variants of this design. Add more entries here as new
@@ -60,7 +73,7 @@ export const PRODUCTS = [
         price: 40.1786, // GHS 450 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵450 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: pFuguPatches,
         images: [pFuguPatches],
         colors: [
@@ -85,7 +98,7 @@ export const PRODUCTS = [
         price: 31.25, // GHS 350 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵350 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: tdPDesign,
         images: [tdPDesign],
         colors: [
@@ -110,7 +123,7 @@ export const PRODUCTS = [
         price: 40.1786, // GHS 450 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵450 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: tdFuguDesign,
         images: [tdFuguDesign],
         colors: [
@@ -136,12 +149,13 @@ export const PRODUCTS = [
         price: 75.8929, // GHS 850 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵850 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: fuguMultiC,
-        images: [fuguMultiC, fuguMultiCSide],
+        images: [fuguMultiC, fuguMultiCSide, fuguMultiC02],
         colors: [
             { name: 'Gold & Burgundy Stripe', image: fuguMultiC, hoverImage: fuguMultiCSide, images: [fuguMultiC, fuguMultiCSide] },
             { name: 'Forest & Sky Colorblock', image: fuguMultiC01, hoverImage: fuguMultiC01Side, images: [fuguMultiC01, fuguMultiC01Side] },
+            { name: 'Teal & Rust Stripe', image: fuguMultiC02, images: [fuguMultiC02] },
         ],
         imageAlt: 'Striped Fugu with a metallic gold panel and fringe pockets',
         description: 'A striped Fugu with contrasting patch pockets and fringe trim, finished with a bold colorblock panel for a handcrafted, textural edge.',
@@ -159,7 +173,7 @@ export const PRODUCTS = [
         price: 71.4286, // GHS 800 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵800 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: fuguPDesign112,
         images: [fuguPDesign112],
         colors: [
@@ -181,12 +195,11 @@ export const PRODUCTS = [
         price: 71.4286, // GHS 800 at the site's current rate (CURRENCY_RATES.GHS = 11.20) — displays as exactly ₵800 when currency is set to GHS
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: fuguMTassels221,
         images: [fuguMTassels221, fuguMTassels221Side],
         colors: [
-            { name: 'Multicolor Stripe — Front', image: fuguMTassels221, images: [fuguMTassels221] },
-            { name: 'Multicolor Stripe — Side', image: fuguMTassels221Side, images: [fuguMTassels221Side] },
+            { name: 'Multicolor Stripe', image: fuguMTassels221, hoverImage: fuguMTassels221Side, images: [fuguMTassels221, fuguMTassels221Side] },
         ],
         imageAlt: 'Multicolor striped Fugu poncho with tassel fringe',
         description: 'A relaxed, poncho-style Fugu in a rich multicolor stripe, finished with a V-neckline and tassel fringe hem for a bold, easy silhouette.',
@@ -301,12 +314,14 @@ export const PRODUCTS = [
         price: 40.1786, // PLACEHOLDER — update once the real price is provided
         compareAtPrice: null,
         currency: 'USD',
-        category: 'Fugu',
+        category: "Women's Fugu",
         image: burgundyStripeKaftan1,
-        images: [burgundyStripeKaftan1, burgundyStripeKaftan2],
+        images: [burgundyStripeKaftan1, burgundyStripeKaftan2, burgundyStripeKaftan3, burgundyStripeKaftan4],
         colors: [
             { name: 'Burgundy & Green Stripe — Look 1', image: burgundyStripeKaftan1, images: [burgundyStripeKaftan1] },
             { name: 'Burgundy & Green Stripe — Look 2', image: burgundyStripeKaftan2, images: [burgundyStripeKaftan2] },
+            { name: 'Navy & Orange Stripe', image: burgundyStripeKaftan3, images: [burgundyStripeKaftan3] },
+            { name: 'Burgundy, Navy & Grey Stripe', image: burgundyStripeKaftan4, images: [burgundyStripeKaftan4] },
         ],
         imageAlt: 'Burgundy and green striped kaftan with a V-neck and patch pockets',
         description: 'An elegant floor-length kaftan in bold burgundy and green stripes, finished with a V-neckline and structured patch pockets for a striking, statement silhouette.',
@@ -326,9 +341,10 @@ export const PRODUCTS = [
         currency: 'USD',
         category: "Men's",
         image: embroideredKaftanMen,
-        images: [embroideredKaftanMen],
+        images: [embroideredKaftanMen, embroideredKaftanMen1],
         colors: [
             { name: 'Plum & Teal Embroidery', image: embroideredKaftanMen, images: [embroideredKaftanMen] },
+            { name: 'Rust & Gold Embroidery', image: embroideredKaftanMen1, images: [embroideredKaftanMen1] },
         ],
         imageAlt: 'Plum embroidered agbada with teal detailing and matching cap',
         description: 'A regal agbada in deep plum, richly embroidered in teal and paired with a matching cap for a commanding, ceremonial silhouette.',
@@ -338,6 +354,57 @@ export const PRODUCTS = [
         isNew: true,
         rating: 4.9,
         reviewCount: 4,
+    },
+    {
+        id: 'fugu-m-tassels-222',
+        name: 'FUGU-M-TASSELS 222',
+        slug: 'fugu-m-tassels-222',
+        price: 52.70,
+        compareAtPrice: null,
+        currency: 'USD',
+        category: "Men's Fugu",
+        image: fuguMTassels222,
+        images: [fuguMTassels222, fuguMTassels222Maroon, fuguMTassels222Green, fuguMTassels222Mustard],
+        colors: [
+            { name: 'Royal Blue & Silver Stripe', image: fuguMTassels222, images: [fuguMTassels222] },
+            { name: 'Maroon & Gold Embroidery', image: fuguMTassels222Maroon, images: [fuguMTassels222Maroon] },
+            { name: 'Forest Green & White Stripe', image: fuguMTassels222Green, images: [fuguMTassels222Green] },
+            { name: 'Mustard Pattern', image: fuguMTassels222Mustard, images: [fuguMTassels222Mustard] },
+        ],
+        imageAlt: 'Royal blue men’s smock with silver stripe detailing and a beaded round collar',
+        description: 'A traditional men’s smock with a richly beaded or embroidered round collar and flared bell sleeves, available in a range of bold colorways for a striking, ceremonial look.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
+    },
+    {
+        id: 'kaftan-440',
+        name: 'KAFTAN 440',
+        slug: 'kaftan-440',
+        price: 43.91,
+        compareAtPrice: null,
+        currency: 'USD',
+        category: "Men's",
+        image: kaftan440Blue,
+        images: [kaftan440Blue, kaftan440Grey, kaftan440Wine, kaftan440Cream, kaftan440Green],
+        colors: [
+            { name: 'Sky Blue', image: kaftan440Blue, images: [kaftan440Blue] },
+            { name: 'Charcoal Grey', image: kaftan440Grey, images: [kaftan440Grey] },
+            { name: 'Wine', image: kaftan440Wine, images: [kaftan440Wine] },
+            { name: 'Cream', image: kaftan440Cream, images: [kaftan440Cream] },
+            { name: 'Forest Green', image: kaftan440Green, images: [kaftan440Green] },
+        ],
+        imageAlt: 'Sky blue men’s kaftan with a mandarin collar and navy piped placket',
+        description: 'A modern men’s kaftan in a clean silhouette, finished with a mandarin collar, navy piped placket, and a single breast pocket, paired with matching trousers for a polished, contemporary look.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
     },
 ];
 
