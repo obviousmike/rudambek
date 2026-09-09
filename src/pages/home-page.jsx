@@ -602,7 +602,7 @@ function MarqueeItem({ product, duplicate = false }) {
             aria-hidden={duplicate ? 'true' : undefined}
             tabIndex={duplicate ? -1 : 0}
         >
-            <span className="font-serif text-lg italic text-white transition-colors hover:text-slate-900 sm:text-xl">
+            <span className="font-serif text-lg uppercase italic text-white transition-colors hover:text-slate-900 sm:text-xl">
                 {product.name}
             </span>
 

@@ -12,6 +12,9 @@ import fuguMTassels222 from '../../assets/products/FUGU-M-TASSELS 222.jpg';
 import fuguMTassels222Maroon from '../../assets/products/FUGU-M-TASSELS 222-1.jpeg';
 import fuguMTassels222Green from '../../assets/products/FUGU-M-TASSELS 222-2.jpeg';
 import fuguMTassels222Mustard from '../../assets/products/FUGU-M-TASSELS 222-3.jpeg';
+import fugu300Green from '../../assets/products/FUGU 300-1.png';
+import fugu300Black from '../../assets/products/FUGU 300-2.png';
+import fugu300Fringe from '../../assets/products/FUGU 300-3.png';
 import fuguPDesign112 from '../../assets/products/FUGU-P-DESIGN 112.jpg';
 import tdFuguDesign from '../../assets/products/TD-FUGU Design 111 - GHS450.jpg';
 import tdFuguBatik from '../../assets/products/TD-FUGU 01.jpg';
@@ -372,6 +375,30 @@ export const PRODUCTS = [
         ],
         imageAlt: 'Royal blue men’s smock with silver stripe detailing and a beaded round collar',
         description: 'A traditional men’s smock with a richly beaded or embroidered round collar and flared bell sleeves, available in a range of bold colorways for a striking, ceremonial look.',
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
+    },
+    {
+        id: 'fugu-300',
+        name: 'FUGU 300',
+        slug: 'fugu-300',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: "Men's Fugu",
+        image: fugu300Green,
+        images: [fugu300Green, fugu300Black, fugu300Fringe],
+        colors: [
+            { name: 'Green & Yellow Stripe', image: fugu300Green, images: [fugu300Green] },
+            { name: 'Black, Yellow & White Stripe', image: fugu300Black, images: [fugu300Black] },
+            { name: 'Blue & Yellow Fringe', image: fugu300Fringe, images: [fugu300Fringe] },
+        ],
+        imageAlt: 'Green and yellow striped Fugu smock with patch pockets',
+        description: 'A relaxed, short-sleeve Fugu smock with patch pockets, woven in bold multicolor stripes — available in a range of colorways for an easy, considered look.',
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         stock: 5,
         featured: true,

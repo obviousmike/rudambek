@@ -85,7 +85,7 @@ function GalleryCard({ item, duplicate = false, eager = false }) {
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/55 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <FaTiktok aria-hidden="true" className="h-6 w-6" />
-                    <span className="text-[11px] font-medium tracking-[0.08em]">
+                    <span className="text-[11px] font-medium uppercase tracking-[0.08em]">
                         @rudambek.clothing
                     </span>
                 </div>
