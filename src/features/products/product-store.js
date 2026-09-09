@@ -37,16 +37,14 @@ import menTwoPieceGrey from '../../assets/products/Men two piece 4.jpeg';
 import womenTwoPieceChocolateLeaf from '../../assets/products/Women two piece1.png';
 import womenTwoPieceWhiteRedBatik from '../../assets/products/Women two piece2.png';
 import womenTwoPieceTaupeBronzeIkat from '../../assets/products/Women two piece3.png';
-import womenTwoPieceBlackTropical from '../../assets/products/Women two piece4.png';
-import womenTwoPieceBlackGoldMonogram from '../../assets/products/Women two piece5.png';
-import womenTwoPieceBlackSunsetBatik from '../../assets/products/Women two piece6.png';
-import womenTwoPieceCobaltSunsetBatik from '../../assets/products/Women two piece7.png';
-import womenTwoPieceBlackFuchsiaAnkara from '../../assets/products/Women two piece8.png';
-import womenTwoPieceKhakiMaroonMedallion from '../../assets/products/Women two piece9.png';
-import womenTwoPieceWhiteEmeraldBatik from '../../assets/products/Women two piece11.png';
-import womenTwoPieceOliveStripe from '../../assets/products/Women two piece12.png';
-import womenTwoPieceBlushPinstripe from '../../assets/products/Women two piece13.PNG';
-import womenTwoPieceNavySolid from '../../assets/products/Women two piece14.PNG';
+import womenTwoPieceWhiteEmeraldBatik from '../../assets/products/Women two piece4.png';
+import womenTwoPieceKhakiMaroonMedallion from '../../assets/products/Women two piece5.png';
+import clothPatchworkBlackSunsetBatik from '../../assets/products/Cloth Patchworks Women two piece1.png';
+import clothPatchworkCobaltSunsetBatik from '../../assets/products/Cloth Patchworks Women two piece2.png';
+import clothPatchworkBlackFuchsiaAnkara from '../../assets/products/Cloth Patchworks Women two piece3.png';
+import clothPatchworkBlackTropical from '../../assets/products/Cloth Patchworks Women two piece4.png';
+import womenTwoPieceBlushPinstripe from "../../assets/products/Women's Matching shirts & Pants set - Women two piece1.PNG";
+import womenTwoPieceNavySolid from "../../assets/products/Women's Matching shirts & Pants set - Women two piece2.PNG";
 
 export const PRODUCTS = [
     {
@@ -236,25 +234,15 @@ export const PRODUCTS = [
             womenTwoPieceChocolateLeaf,
             womenTwoPieceWhiteRedBatik,
             womenTwoPieceTaupeBronzeIkat,
-            womenTwoPieceBlackTropical,
-            womenTwoPieceBlackGoldMonogram,
-            womenTwoPieceBlackSunsetBatik,
-            womenTwoPieceCobaltSunsetBatik,
-            womenTwoPieceBlackFuchsiaAnkara,
-            womenTwoPieceKhakiMaroonMedallion,
             womenTwoPieceWhiteEmeraldBatik,
+            womenTwoPieceKhakiMaroonMedallion,
         ],
         colors: [
             { name: 'Chocolate & Fern Leaf Print', image: womenTwoPieceChocolateLeaf, images: [womenTwoPieceChocolateLeaf] },
             { name: 'White & Red Batik', image: womenTwoPieceWhiteRedBatik, images: [womenTwoPieceWhiteRedBatik] },
             { name: 'Taupe & Bronze Ikat', image: womenTwoPieceTaupeBronzeIkat, images: [womenTwoPieceTaupeBronzeIkat] },
-            { name: 'Black & Tropical Abstract', image: womenTwoPieceBlackTropical, images: [womenTwoPieceBlackTropical] },
-            { name: 'Black & Gold Monogram', image: womenTwoPieceBlackGoldMonogram, images: [womenTwoPieceBlackGoldMonogram] },
-            { name: 'Black & Sunset Batik', image: womenTwoPieceBlackSunsetBatik, images: [womenTwoPieceBlackSunsetBatik] },
-            { name: 'Cobalt & Sunset Batik', image: womenTwoPieceCobaltSunsetBatik, images: [womenTwoPieceCobaltSunsetBatik] },
-            { name: 'Black & Fuchsia Ankara', image: womenTwoPieceBlackFuchsiaAnkara, images: [womenTwoPieceBlackFuchsiaAnkara] },
-            { name: 'Khaki & Maroon Medallion', image: womenTwoPieceKhakiMaroonMedallion, images: [womenTwoPieceKhakiMaroonMedallion] },
             { name: 'White & Emerald Batik Leaf', image: womenTwoPieceWhiteEmeraldBatik, images: [womenTwoPieceWhiteEmeraldBatik] },
+            { name: 'Khaki & Maroon Medallion', image: womenTwoPieceKhakiMaroonMedallion, images: [womenTwoPieceKhakiMaroonMedallion] },
         ],
         imageAlt: 'Chocolate brown short-sleeve shirt with a leaf-print patch bib, paired with matching wide-leg leaf-print trousers',
         description: 'A short-sleeve collared shirt with a contrast patchwork bib, paired with coordinating wide-leg print trousers — available in a range of bold fabric pairings for a striking, considered silhouette.',
@@ -266,22 +254,51 @@ export const PRODUCTS = [
         reviewCount: 3,
     },
     {
-        id: 'womens-matching-shirt-pants-set',
-        name: "WOMEN'S MATCHING SHIRT & PANTS SET",
-        slug: 'womens-matching-shirt-pants-set',
+        id: 'womens-matching-shirts-pants-set',
+        name: "WOMEN'S MATCHING SHIRTS & PANTS SET",
+        slug: 'womens-matching-shirts-pants-set',
         price: 40.1786, // PLACEHOLDER — update once the real price is provided
         compareAtPrice: null,
         currency: 'USD',
         category: 'Women Two-Piece',
-        image: womenTwoPieceOliveStripe,
-        images: [womenTwoPieceOliveStripe, womenTwoPieceBlushPinstripe, womenTwoPieceNavySolid],
+        image: womenTwoPieceBlushPinstripe,
+        images: [womenTwoPieceBlushPinstripe, womenTwoPieceNavySolid],
         colors: [
-            { name: 'Olive Stripe', image: womenTwoPieceOliveStripe, images: [womenTwoPieceOliveStripe] },
             { name: 'Blush Pinstripe', image: womenTwoPieceBlushPinstripe, images: [womenTwoPieceBlushPinstripe] },
             { name: 'Navy Solid', image: womenTwoPieceNavySolid, images: [womenTwoPieceNavySolid] },
         ],
-        imageAlt: 'Olive striped long-sleeve shirt and matching wide-leg trousers',
+        imageAlt: 'Blush pink pinstriped long-sleeve shirt and matching wide-leg trousers',
         description: 'A relaxed long-sleeve shirt and matching wide-leg trousers cut from the same fabric, for an easy, coordinated silhouette — available in striped and solid colorways.',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        stock: 5,
+        featured: true,
+        isNew: true,
+        rating: 4.8,
+        reviewCount: 3,
+    },
+    {
+        id: 'cloth-patchworks-women-two-piece',
+        name: 'CLOTH PATCHWORKS WOMEN TWO PIECE',
+        slug: 'cloth-patchworks-women-two-piece',
+        price: 40.1786, // PLACEHOLDER — update once the real price is provided
+        compareAtPrice: null,
+        currency: 'USD',
+        category: 'Women Two-Piece',
+        image: clothPatchworkBlackSunsetBatik,
+        images: [
+            clothPatchworkBlackSunsetBatik,
+            clothPatchworkCobaltSunsetBatik,
+            clothPatchworkBlackFuchsiaAnkara,
+            clothPatchworkBlackTropical,
+        ],
+        colors: [
+            { name: 'Black & Sunset Batik', image: clothPatchworkBlackSunsetBatik, images: [clothPatchworkBlackSunsetBatik] },
+            { name: 'Cobalt & Sunset Batik', image: clothPatchworkCobaltSunsetBatik, images: [clothPatchworkCobaltSunsetBatik] },
+            { name: 'Black & Fuchsia Ankara', image: clothPatchworkBlackFuchsiaAnkara, images: [clothPatchworkBlackFuchsiaAnkara] },
+            { name: 'Black & Tropical Abstract', image: clothPatchworkBlackTropical, images: [clothPatchworkBlackTropical] },
+        ],
+        imageAlt: 'Black short-sleeve shirt with an orange and blue batik patch bib, paired with matching wide-leg batik trousers',
+        description: 'A short-sleeve collared shirt with a contrast patchwork bib, paired with coordinating wide-leg print trousers — a bold patchwork edit in vivid batik and Ankara pairings.',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         stock: 5,
         featured: true,

@@ -12,6 +12,7 @@ import editorial02 from '../assets/products/editorial-02.jpg';
 import editorial04 from '../assets/products/editorial-04.jpg';
 import editorial05 from '../assets/products/editorial-05.jpg';
 import editorial06 from '../assets/products/editorial-06.jpg';
+import menTwoPieceCharcoal from '../assets/products/Men two piece 3.jpeg';
 
 import ankaraKaftan from '../assets/products/ankara-kaftan.jpg';
 import resortShirt from '../assets/products/resort-shirt.jpg';
@@ -63,7 +64,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Bespoke Collection',
         description:
             'Personalized clothing designed and tailored to meet clients’ unique preferences and occasions.',
-        image: editorial04,
+        image: menTwoPieceCharcoal,
         span: 'lg:col-span-1',
         minHeight: 'min-h-[240px] lg:min-h-0',
     },
@@ -168,7 +169,15 @@ const CATEGORIES = [
 export function HomePage() {
     usePageMeta();
 
-    const latestProducts = PRODUCTS.slice(0, 4);
+    const latestProductIds = [
+        'p-fugu-design',
+        'mens-two-piece-set',
+        'p-fugu-patches',
+        'cloth-patchworks-women-two-piece',
+    ];
+    const latestProducts = latestProductIds
+        .map((id) => PRODUCTS.find((product) => product.id === id))
+        .filter(Boolean);
 
     return (
         <main className="bg-[#faf7f3]">

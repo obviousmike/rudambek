@@ -144,7 +144,7 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
                     state={{ initialColorIndex: selectedColorIndex }}
                     className="outline-none focus-visible:ring-2 focus-visible:ring-[#c9a24b]"
                 >
-                    <h2 className="mt-1 line-clamp-2 font-serif text-[15px] leading-tight text-slate-900 transition-colors group-hover:text-[#a6814c] sm:text-base">
+                    <h2 className="mt-1 line-clamp-2 min-h-[2.5em] font-serif text-[15px] leading-tight text-slate-900 transition-colors group-hover:text-[#a6814c] sm:text-base">
                         {product.name}
                     </h2>
                 </Link>
