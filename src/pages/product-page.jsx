@@ -21,6 +21,8 @@ import { TrustBadges } from '../components/ui/trust-badges';
 import { RecentlyViewed } from '../components/ui/recently-viewed';
 import { useRecentlyViewedStore } from '../features/products/recently-viewed-store';
 
+const PRODUCT_PAGE_AUTO_CYCLE_MS = 4000;
+
 export function ProductPage() {
     const { productId } = useParams();
     const location = useLocation();
@@ -50,6 +52,7 @@ export function ProductPage() {
         location.state?.initialColorIndex ?? 0
     );
     const [isImageHovered, setIsImageHovered] = useState(false);
+    const [userPickedColor, setUserPickedColor] = useState(false);
 
     useEffect(() => {
         if (!lightboxOpen) return undefined;
@@ -75,6 +78,20 @@ export function ProductPage() {
     useEffect(() => {
         if (product) addViewed(product.id);
     }, [product, addViewed]);
+
+    const pageColorCount = product?.colors?.length ?? 0;
+
+    useEffect(() => {
+        if (pageColorCount < 2 || userPickedColor || isImageHovered) {
+            return undefined;
+        }
+
+        const timer = window.setInterval(() => {
+            setSelectedColorIndex((index) => (index + 1) % pageColorCount);
+        }, PRODUCT_PAGE_AUTO_CYCLE_MS);
+
+        return () => window.clearInterval(timer);
+    }, [pageColorCount, userPickedColor, isImageHovered]);
 
     if (!product) {
         return <Navigate to="/#catalog" replace />;
@@ -153,12 +170,19 @@ export function ProductPage() {
 
     const handlePrevColor = () => {
         if (colorCount < 2) return;
+        setUserPickedColor(true);
         setSelectedColorIndex((index) => (index - 1 + colorCount) % colorCount);
     };
 
     const handleNextColor = () => {
         if (colorCount < 2) return;
+        setUserPickedColor(true);
         setSelectedColorIndex((index) => (index + 1) % colorCount);
+    };
+
+    const handleSelectColor = (index) => {
+        setUserPickedColor(true);
+        setSelectedColorIndex(index);
     };
 
     return (
@@ -307,7 +331,7 @@ export function ProductPage() {
                                 <ColorSwatches
                                     colors={product.colors}
                                     selectedIndex={selectedColorIndex}
-                                    onSelect={setSelectedColorIndex}
+                                    onSelect={handleSelectColor}
                                 />
                             </div>
                         )}
