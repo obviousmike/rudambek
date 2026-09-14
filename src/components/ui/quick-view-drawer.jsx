@@ -207,7 +207,7 @@ export function QuickViewDrawer() {
                             key={activeColor?.name ?? product.image}
                             src={displayImage}
                             alt={product.imageAlt || product.name}
-                            className="color-fade-in h-full w-full object-cover"
+                            className="color-fade-in h-full w-full object-contain"
                         />
 
                         {colorCount > 1 && (

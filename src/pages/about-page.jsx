@@ -59,7 +59,7 @@ const PRODUCT_LINES = [
     },
     {
         name: "Men's African Print Shirts",
-        category: "Men's",
+        category: 'Men Shirt',
     },
     {
         name: "Men's Two-Piece Sets",
@@ -70,8 +70,12 @@ const PRODUCT_LINES = [
         category: 'Kaftans',
     },
     {
-        name: 'Northern Ghana Fugu (Smock) Wear',
-        category: 'Fugu',
+        name: "Women's Fugu (Smock) Wear",
+        category: "Women's Fugu",
+    },
+    {
+        name: "Men's Fugu (Smock) Wear",
+        category: "Men's Fugu",
     },
     {
         name: 'Corporate African Wear',

@@ -1,4 +1,4 @@
-import { FaInstagram } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa';
 import { usePageMeta } from '../hooks/use-page-meta';
 import { Breadcrumbs } from '../components/ui/breadcrumbs';
 
@@ -14,30 +14,60 @@ import fuguMultiC from '../assets/products/FUGU-MULTI C.jpg';
 import fuguMultiC01 from '../assets/products/FUGU-MULTI C 01.jpg';
 import fuguPDesign112 from '../assets/products/FUGU-P-DESIGN 112.jpg';
 import fuguMTassels221 from '../assets/products/FUGU-M-TASSELS 221.jpg';
+import menTwoPieceNavy from '../assets/products/Men two piece 1.png';
+import menTwoPieceBrown from '../assets/products/Men two piece 2.jpeg';
+import menTwoPieceCharcoal from '../assets/products/Men two piece 3.jpeg';
+import menTwoPieceGrey from '../assets/products/Men two piece 4.jpeg';
+import womenTwoPieceChocolateLeaf from '../assets/products/Women two piece1.png';
+import womenTwoPieceWhiteRedBatik from '../assets/products/Women two piece2.png';
+import womenTwoPieceTaupeBronzeIkat from '../assets/products/Women two piece3.png';
+import womenTwoPieceWhiteEmeraldBatik from '../assets/products/Women two piece4.png';
+import womenTwoPieceKhakiMaroonMedallion from '../assets/products/Women two piece5.png';
+import clothPatchworkBlackSunsetBatik from '../assets/products/Cloth Patchworks Women two piece1.png';
+import clothPatchworkCobaltSunsetBatik from '../assets/products/Cloth Patchworks Women two piece2.png';
+import clothPatchworkBlackFuchsiaAnkara from '../assets/products/Cloth Patchworks Women two piece3.png';
+import clothPatchworkBlackTropical from '../assets/products/Cloth Patchworks Women two piece4.png';
+import womenTwoPieceBlushPinstripe from "../assets/products/Women's Matching shirts & Pants set - Women two piece1.PNG";
+import womenTwoPieceNavySolid from "../assets/products/Women's Matching shirts & Pants set - Women two piece2.PNG";
 
 const GOLD = '#C9A24B';
 
-const INSTAGRAM_URL = 'https://www.instagram.com/rudambek.style/';
+const TIKTOK_URL = 'https://www.tiktok.com/@rudambek.clothing?_r=1&_t=ZN-99avDiyLXTq';
 
 const GALLERY_ITEMS = [
     { id: 1, img: pFuguDesign, title: 'P-FUGU Design' },
-    { id: 2, img: pFuguPatches, title: 'P-FUGU Patches' },
-    { id: 3, img: tdPDesign, title: 'TD-P Design' },
-    { id: 4, img: tdFuguDesign, title: 'TD-FUGU Design 111 — Gold & Green' },
-    { id: 5, img: tdFuguBatik, title: 'TD-FUGU Design 111 — Maroon Batik' },
-    { id: 6, img: tdFuguChartreuse, title: 'TD-FUGU Design 111 — Chartreuse Tie-Dye' },
-    { id: 7, img: tdFuguPlum, title: 'TD-FUGU Design 111 — Plum Tie-Dye' },
-    { id: 8, img: tdFuguCocoa, title: 'TD-FUGU Design 111 — Cocoa Tie-Dye' },
-    { id: 9, img: fuguMultiC, title: 'FUGU-MULTI C — Gold & Burgundy Stripe' },
-    { id: 10, img: fuguMultiC01, title: 'FUGU-MULTI C — Forest & Sky Colorblock' },
-    { id: 11, img: fuguPDesign112, title: 'FUGU-P-DESIGN 112' },
-    { id: 12, img: fuguMTassels221, title: 'FUGU-M-TASSELS 221' },
+    { id: 2, img: menTwoPieceNavy, title: "MEN'S TWO-PIECE SET — Navy Blue" },
+    { id: 3, img: pFuguPatches, title: 'P-FUGU Patches' },
+    { id: 4, img: womenTwoPieceChocolateLeaf, title: "WOMEN'S PATCHWORK TWO-PIECE SET — Chocolate & Fern Leaf" },
+    { id: 5, img: tdPDesign, title: 'TD-P Design' },
+    { id: 6, img: menTwoPieceBrown, title: "MEN'S TWO-PIECE SET — Brown & Black Colorblock" },
+    { id: 7, img: tdFuguDesign, title: 'TD-FUGU Design 111 — Gold & Green' },
+    { id: 8, img: clothPatchworkBlackSunsetBatik, title: 'CLOTH PATCHWORKS WOMEN TWO PIECE — Black & Sunset Batik' },
+    { id: 9, img: tdFuguBatik, title: 'TD-FUGU Design 111 — Maroon Batik' },
+    { id: 10, img: womenTwoPieceBlushPinstripe, title: "WOMEN'S MATCHING SHIRTS & PANTS SET — Blush Pinstripe" },
+    { id: 11, img: tdFuguChartreuse, title: 'TD-FUGU Design 111 — Chartreuse Tie-Dye' },
+    { id: 12, img: menTwoPieceCharcoal, title: "MEN'S TWO-PIECE SET — Charcoal Grey" },
+    { id: 13, img: tdFuguPlum, title: 'TD-FUGU Design 111 — Plum Tie-Dye' },
+    { id: 14, img: womenTwoPieceWhiteRedBatik, title: "WOMEN'S PATCHWORK TWO-PIECE SET — White & Red Batik" },
+    { id: 15, img: tdFuguCocoa, title: 'TD-FUGU Design 111 — Cocoa Tie-Dye' },
+    { id: 16, img: clothPatchworkCobaltSunsetBatik, title: 'CLOTH PATCHWORKS WOMEN TWO PIECE — Cobalt & Sunset Batik' },
+    { id: 17, img: fuguMultiC, title: 'FUGU-MULTI C — Gold & Burgundy Stripe' },
+    { id: 18, img: menTwoPieceGrey, title: "MEN'S TWO-PIECE SET — Grey & Blue Trim" },
+    { id: 19, img: fuguMultiC01, title: 'FUGU-MULTI C — Forest & Sky Colorblock' },
+    { id: 20, img: womenTwoPieceTaupeBronzeIkat, title: "WOMEN'S PATCHWORK TWO-PIECE SET — Taupe & Bronze Ikat" },
+    { id: 21, img: fuguPDesign112, title: 'FUGU-P-DESIGN 112' },
+    { id: 22, img: clothPatchworkBlackFuchsiaAnkara, title: 'CLOTH PATCHWORKS WOMEN TWO PIECE — Black & Fuchsia Ankara' },
+    { id: 23, img: fuguMTassels221, title: 'FUGU-M-TASSELS 221' },
+    { id: 24, img: womenTwoPieceNavySolid, title: "WOMEN'S MATCHING SHIRTS & PANTS SET — Navy Solid" },
+    { id: 25, img: womenTwoPieceWhiteEmeraldBatik, title: "WOMEN'S PATCHWORK TWO-PIECE SET — White & Emerald Batik Leaf" },
+    { id: 26, img: clothPatchworkBlackTropical, title: 'CLOTH PATCHWORKS WOMEN TWO PIECE — Black & Tropical Abstract' },
+    { id: 27, img: womenTwoPieceKhakiMaroonMedallion, title: "WOMEN'S PATCHWORK TWO-PIECE SET — Khaki & Maroon Medallion" },
 ];
 
 function GalleryCard({ item, duplicate = false, eager = false }) {
     return (
         <a
-            href={INSTAGRAM_URL}
+            href={TIKTOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative w-[190px] shrink-0 sm:w-[210px]"
@@ -54,9 +84,9 @@ function GalleryCard({ item, duplicate = false, eager = false }) {
                 />
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/55 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <FaInstagram aria-hidden="true" className="h-6 w-6" />
-                    <span className="text-[11px] font-medium tracking-[0.08em]">
-                        @rudambek.style
+                    <FaTiktok aria-hidden="true" className="h-6 w-6" />
+                    <span className="text-[11px] font-medium uppercase tracking-[0.08em]">
+                        @rudambek.clothing
                     </span>
                 </div>
             </div>
@@ -105,14 +135,14 @@ export function AsSeenOnSection({ headingTag: HeadingTag = 'h2' }) {
                             Discover how our community wears Rudambek with
                             confidence, character, and individuality. Tag{' '}
                             <span className="font-medium text-slate-700">
-                                @rudambek.style
+                                @rudambek.clothing
                             </span>{' '}
                             for a chance to be featured.
                         </p>
                     </div>
 
                     <a
-                        href={INSTAGRAM_URL}
+                        href={TIKTOK_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group inline-flex min-h-12 shrink-0 items-center justify-center gap-3 border border-slate-900 px-7 text-xs font-semibold uppercase tracking-[0.18em] text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:text-white hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A24B] focus-visible:ring-offset-2"
@@ -167,7 +197,7 @@ export function AsSeenOnPage() {
     usePageMeta({
         title: 'As Seen On',
         description:
-            'See Rudambek Clothing styles as featured on Instagram — real looks from @rudambek.style.',
+            'See Rudambek Clothing styles as featured on TikTok — real looks from @rudambek.clothing.',
     });
 
     return (

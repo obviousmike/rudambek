@@ -12,6 +12,7 @@ import editorial02 from '../assets/products/editorial-02.jpg';
 import editorial04 from '../assets/products/editorial-04.jpg';
 import editorial05 from '../assets/products/editorial-05.jpg';
 import editorial06 from '../assets/products/editorial-06.jpg';
+import menTwoPieceCharcoal from '../assets/products/Men two piece 3.jpeg';
 
 import ankaraKaftan from '../assets/products/ankara-kaftan.jpg';
 import resortShirt from '../assets/products/resort-shirt.jpg';
@@ -20,9 +21,9 @@ import amaniNation from '../assets/products/amani-nation.jpg';
 import pFuguDesign from '../assets/products/P-FUGU Design GHS - 400.jpg';
 import pFuguPatches from '../assets/products/P-FUGU Patches ghs - 450.jpg';
 import tdPDesign from '../assets/products/TD-P Design GHS -  350.jpg';
-import tdFuguBatik from '../assets/products/TD-FUGU 01.jpg';
 import tdFuguChartreuse from '../assets/products/TD-FUGU 02.jpg';
 import tdFuguPlum from '../assets/products/TD-FUGU 03.jpg';
+import fuguMTassels221 from '../assets/products/FUGU-M-TASSELS 221.jpg';
 
 const GOLD = '#c9a24b';
 
@@ -43,7 +44,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Northern Heritage Collection',
         description:
             'Premium garments crafted from authentic handwoven Fugu fabric, celebrating the rich textile traditions of Northern Ghana.',
-        image: tdFuguBatik,
+        image: fuguMTassels221,
         span: 'sm:col-span-2 lg:col-span-2',
         minHeight: 'min-h-[280px] lg:min-h-0',
     },
@@ -63,7 +64,7 @@ const SIGNATURE_COLLECTIONS = [
         name: 'Bespoke Collection',
         description:
             'Personalized clothing designed and tailored to meet clients’ unique preferences and occasions.',
-        image: editorial04,
+        image: menTwoPieceCharcoal,
         span: 'lg:col-span-1',
         minHeight: 'min-h-[240px] lg:min-h-0',
     },
@@ -87,7 +88,7 @@ const CATEGORIES = [
             'Fluid shapes, considered volume, and effortless elegance in motion.',
         image: pFuguDesign,
         imageFit: 'contain',
-        shopCategory: 'Fugu',
+        shopCategory: "Women's Fugu",
     },
     {
         id: 'shirts',
@@ -96,7 +97,7 @@ const CATEGORIES = [
         description:
             'Confident resort and occasion shirts made for modern self-expression.',
         image: resortShirt,
-        shopCategory: 'Shirts',
+        shopCategory: 'Men Shirt',
     },
     {
         id: 'sets',
@@ -115,7 +116,7 @@ const CATEGORIES = [
             'Pieces inspired by African pattern, tradition, and textile craft.',
         image: tdFuguPlum,
         imageFit: 'contain',
-        shopCategory: 'Fugu',
+        shopCategory: "Women's Fugu",
     },
     {
         id: 'occasionwear',
@@ -168,7 +169,15 @@ const CATEGORIES = [
 export function HomePage() {
     usePageMeta();
 
-    const latestProducts = PRODUCTS.slice(0, 4);
+    const latestProductIds = [
+        'p-fugu-design',
+        'mens-two-piece-set',
+        'p-fugu-patches',
+        'cloth-patchworks-women-two-piece',
+    ];
+    const latestProducts = latestProductIds
+        .map((id) => PRODUCTS.find((product) => product.id === id))
+        .filter(Boolean);
 
     return (
         <main className="bg-[#faf7f3]">
@@ -593,7 +602,7 @@ function MarqueeItem({ product, duplicate = false }) {
             aria-hidden={duplicate ? 'true' : undefined}
             tabIndex={duplicate ? -1 : 0}
         >
-            <span className="font-serif text-lg italic text-white transition-colors hover:text-slate-900 sm:text-xl">
+            <span className="font-serif text-lg uppercase italic text-white transition-colors hover:text-slate-900 sm:text-xl">
                 {product.name}
             </span>
 
