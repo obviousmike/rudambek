@@ -14,6 +14,8 @@ import { HeartIcon } from './heart-icon';
 import { ColorSwatches } from './color-swatches';
 import { TruckIcon, ReturnIcon, ShieldIcon } from './trust-icons';
 
+const QUICK_VIEW_AUTO_CYCLE_MS = 4000;
+
 const ASSURANCES = [
     { icon: TruckIcon, label: 'Free delivery in Ghana' },
     { icon: ReturnIcon, label: '14-day returns' },
@@ -89,6 +91,7 @@ export function QuickViewDrawer() {
     const [sizeError, setSizeError] = useState(false);
     const [selectedColorIndex, setSelectedColorIndex] = useState(0);
     const [isImageHovered, setIsImageHovered] = useState(false);
+    const [userPickedColor, setUserPickedColor] = useState(false);
 
     // Reset the form whenever a different product is shown, adjusted
     // directly during render (React's recommended pattern for "reset state
@@ -101,6 +104,7 @@ export function QuickViewDrawer() {
         setAdded(false);
         setSizeError(false);
         setSelectedColorIndex(product.initialColorIndex ?? 0);
+        setUserPickedColor(false);
     }
 
     useEffect(() => {
@@ -113,6 +117,20 @@ export function QuickViewDrawer() {
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
     }, [isOpen, closeQuickView]);
+
+    const quickViewColorCount = product?.colors?.length ?? 0;
+
+    useEffect(() => {
+        if (!isOpen || quickViewColorCount < 2 || userPickedColor || isImageHovered) {
+            return undefined;
+        }
+
+        const timer = window.setInterval(() => {
+            setSelectedColorIndex((index) => (index + 1) % quickViewColorCount);
+        }, QUICK_VIEW_AUTO_CYCLE_MS);
+
+        return () => window.clearInterval(timer);
+    }, [isOpen, quickViewColorCount, userPickedColor, isImageHovered]);
 
     if (!product) return null;
 
@@ -157,12 +175,19 @@ export function QuickViewDrawer() {
 
     const handlePrevColor = () => {
         if (colorCount < 2) return;
+        setUserPickedColor(true);
         setSelectedColorIndex((index) => (index - 1 + colorCount) % colorCount);
     };
 
     const handleNextColor = () => {
         if (colorCount < 2) return;
+        setUserPickedColor(true);
         setSelectedColorIndex((index) => (index + 1) % colorCount);
+    };
+
+    const handleSelectColor = (index) => {
+        setUserPickedColor(true);
+        setSelectedColorIndex(index);
     };
 
     return (
@@ -325,7 +350,7 @@ export function QuickViewDrawer() {
                                 <ColorSwatches
                                     colors={product.colors}
                                     selectedIndex={selectedColorIndex}
-                                    onSelect={setSelectedColorIndex}
+                                    onSelect={handleSelectColor}
                                     size="sm"
                                 />
                             </div>

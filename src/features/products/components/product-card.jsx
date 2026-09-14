@@ -15,14 +15,8 @@ import { BADGE_TONE_CLASSES } from '../badge-styles';
 
 const GOLD = '#c9a24b';
 const GOLD_HOVER = '#a8822f';
-const AUTO_CYCLE_MS = 2200;
 
-export function ProductCard({
-    product,
-    compact = false,
-    showColorSwatches = true,
-    autoCycleColors = false,
-}) {
+export function ProductCard({ product, compact = false, showColorSwatches = true }) {
     const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const isWishlisted = useWishlistStore((state) =>
@@ -36,26 +30,6 @@ export function ProductCard({
         product.initialColorIndex ?? 0
     );
     const [isImageHovered, setIsImageHovered] = useState(false);
-    const [userPickedColor, setUserPickedColor] = useState(false);
-
-    const colorCount = product.colors?.length ?? 0;
-
-    useEffect(() => {
-        if (!autoCycleColors || colorCount < 2 || userPickedColor || isImageHovered) {
-            return undefined;
-        }
-
-        const timer = window.setInterval(() => {
-            setSelectedColorIndex((index) => (index + 1) % colorCount);
-        }, AUTO_CYCLE_MS);
-
-        return () => window.clearInterval(timer);
-    }, [autoCycleColors, colorCount, userPickedColor, isImageHovered]);
-
-    const handleSelectColor = (index) => {
-        setUserPickedColor(true);
-        setSelectedColorIndex(index);
-    };
 
     const onSale = isProductOnSale(product);
     const discountPercentage = getDiscountPercentage(product);
@@ -223,7 +197,7 @@ export function ProductCard({
                         <ColorSwatches
                             colors={product.colors}
                             selectedIndex={selectedColorIndex}
-                            onSelect={handleSelectColor}
+                            onSelect={setSelectedColorIndex}
                             size="sm"
                         />
                     </div>

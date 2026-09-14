@@ -472,7 +472,6 @@ export function ShopPage() {
                                     key={product.variantKey || product.id}
                                     product={product}
                                     showColorSwatches={activeGroups.length === 0 && !showAllColors}
-                                    autoCycleColors
                                 />
                             ))}
                         </div>
