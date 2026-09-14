@@ -52,7 +52,7 @@ const CATEGORIES = [
         description:
             'Flowing, regal boubou silhouettes reimagined for contemporary style and everyday grace.',
         image: embroideredKaftan,
-        shopCategory: 'Kaftans',
+        shopCategory: "Women's Fugu",
         tag: "Women's",
     },
     {
