@@ -15,8 +15,14 @@ import { BADGE_TONE_CLASSES } from '../badge-styles';
 
 const GOLD = '#c9a24b';
 const GOLD_HOVER = '#a8822f';
+const AUTO_CYCLE_MS = 2200;
 
-export function ProductCard({ product, compact = false, showColorSwatches = true }) {
+export function ProductCard({
+    product,
+    compact = false,
+    showColorSwatches = true,
+    autoCycleColors = false,
+}) {
     const formatDualPrice = useAppStore((state) => state.formatDualPrice);
     const addToCart = useCartStore((state) => state.addToCart);
     const isWishlisted = useWishlistStore((state) =>
@@ -30,6 +36,26 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
         product.initialColorIndex ?? 0
     );
     const [isImageHovered, setIsImageHovered] = useState(false);
+    const [userPickedColor, setUserPickedColor] = useState(false);
+
+    const colorCount = product.colors?.length ?? 0;
+
+    useEffect(() => {
+        if (!autoCycleColors || colorCount < 2 || userPickedColor || isImageHovered) {
+            return undefined;
+        }
+
+        const timer = window.setInterval(() => {
+            setSelectedColorIndex((index) => (index + 1) % colorCount);
+        }, AUTO_CYCLE_MS);
+
+        return () => window.clearInterval(timer);
+    }, [autoCycleColors, colorCount, userPickedColor, isImageHovered]);
+
+    const handleSelectColor = (index) => {
+        setUserPickedColor(true);
+        setSelectedColorIndex(index);
+    };
 
     const onSale = isProductOnSale(product);
     const discountPercentage = getDiscountPercentage(product);
@@ -90,10 +116,11 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
                     className="absolute inset-0 block outline-none focus-visible:ring-2 focus-visible:ring-[#c9a24b] focus-visible:ring-offset-2"
                 >
                     <img
+                        key={displayImage}
                         src={displayImage}
                         alt={product.imageAlt || product.name}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        className="color-fade-in h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                 </Link>
 
@@ -196,7 +223,7 @@ export function ProductCard({ product, compact = false, showColorSwatches = true
                         <ColorSwatches
                             colors={product.colors}
                             selectedIndex={selectedColorIndex}
-                            onSelect={setSelectedColorIndex}
+                            onSelect={handleSelectColor}
                             size="sm"
                         />
                     </div>
